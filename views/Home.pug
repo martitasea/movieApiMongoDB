@@ -1,0 +1,47 @@
+html
+    head
+        title=title
+        link(rel='stylesheet' type='text/css' href='./css/style.css')
+        link(rel='icon' type='image/png' href="./img/camera.png")
+        link(rel='icon' type='image/png' href="../img/camera.png")
+        script(src="scriptHome.js" defer)
+    body
+        header#header
+            div#headerTit
+                img#logo(src="./img/camera.png", alt="camera")
+                h1.fontPix=title
+            nav#header
+                a(href="/" id="butHome" class="but" class="fontSecond")="Home"
+                a(href="/formulario" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
+        div#search
+            input(type="text" placeholder="Busca una película" id="movSearch").big.fontSecond
+            div
+            button(type=button id="buttonSearch" class="fontSecond")="Obtén detalles"
+        p#favTit.big.fontSecond="Tus peliculas favoritas"
+        div#sheetPlusNav
+            div#sheet
+                //- h2#filmTit.fontPix="Titanic"
+                //- div#smallFilmHome
+                //-     img#poster(src="poster.jpg", alt="Poster Film")
+                //-     div#detFilmHome
+                //-         div.catFilmHome
+                //-             p.fontSecondBold.key="Director"
+                //-             p.fontSecond.value="James Cameron"
+                //-         div.catFilmHome
+                //-             p.fontSecondBold.key="Fecha"
+                //-             p.fontSecond.value="19 Dec 1997"
+                //-         div.catFilmHome
+                //-             p.fontSecondBold.key="Duración"
+                //-             p.fontSecond.value="194 min"
+                //-         div#iconsHome
+                //-             img(src="./img/eye.png" alt="watched" id="eye")
+                //-             input(type="checkbox" name="yes" id="watched")
+                //-             img(src="./img/loved.png" alt="loved" id="heart")
+                //-             input(type="checkbox" name="yes" id="liked")
+                //-     div#scoreFilm
+                //-             p.fontPix="7,8"
+            //- nav#navSheet
+        //-     a(href="#" id="butEditS" class="but" class="fontSecond")="Editar"
+        //-     a(href="#" id="butDeleteS" class="but" class="fontSecond")="Borrar"
+        //-     a(href="#" id="butSaveS" class="but" class="fontSecond")="Guardar en favoritos"
+        footer.fontSecond="Made by Marta Pulido 2020"

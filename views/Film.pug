@@ -1,0 +1,43 @@
+html
+    head
+        title=title
+        //- link(rel='stylesheet' type='text/css' href='./css/reset.css')
+        link(rel='stylesheet' type='text/css' href='css/style.css')
+        link(rel='icon' type='image/png' href="img/camera.png")
+        
+    body
+        header#header
+            div#headerTit
+                img#logo(src="./img/camera.png", alt="camera")
+                h1.fontPix="Pixel Movie"
+            nav#header
+                a(href="/" id="butHome" class="but" class="fontSecond")="Home"
+                a(href="/formulario" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
+        div#sheet
+            h2#filmTit.fontPix=titulo
+            div#smallFilm
+                div#smallSup
+                    img#posterApi(src=poster, alt="Poster Film")
+                    div#detFilmHome
+                        div.catFilmHome
+                            p.fontSecondBold.key="Director"
+                            p.fontSecond.value=director
+                        div.catFilmHome
+                            p.fontSecondBold.key="Fecha"
+                            p.fontSecond.value=released
+                        div.catFilmHome
+                            p.fontSecondBold.key="Duración"
+                            p.fontSecond.value=runtime
+                        //- div.catFilmHome
+                        //-     p.fontSecondBold.key="Reparto"
+                        //-     p.fontSecond.value#reparto=actors
+                    div#scoreFilm.fontPix=score
+                div.catFilmHome#about
+                    p(class="key fontSecondBold")="Sinopsis"
+                    p(class="value fontSecond")=plot
+        nav#navSheet
+            //- a(href="#" id="butEditS" class="but fontSecond")="Editar"
+            a(href="#" id="butDeleteS" class="but fontSecond")="Guardar en favoritos"
+            //- a(href="#" id="butSaveS" class="but fontSecond")="Guardar en favoritos"
+        footer.fontSecond="Made by Marta Pulido 2020"
+        script(src="scriptHome.js" )
