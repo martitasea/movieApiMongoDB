@@ -192,7 +192,7 @@ div#wordsFilm {
   display: flex;
   flex-direction: row;
 }
-#posterApi {
+#poster {
   height: 250px;
   width: auto;
 }
@@ -260,21 +260,23 @@ nav#navSheet {
 #buttonSave,
 #butEditS,
 #butDeleteS,
-#butDetailS {
+#butDetailS,
+#butSaveF {
   font-size: var(--font-size-regular-nav);
   color: white;
   padding: 0 9vw;
   text-decoration: none;
   position: relative;
-  bottom: 0.3vh;
+  /* bottom: 0.3vh; */
   z-index: 0;
   background-color: var(--main-color-hover);
   border-radius: 0 0 10px 10px;
   line-height: 4vh;
 }
-#butDeleteS{
-  line-height: 4vh;
+#butSaveF{
+  /* line-height: 4vh; */
   margin-left: 2vw;
+  z-index: -5;
 }
 /* ----------------------------------------------------------------------
 ------------------------------------FORM---------------------------------

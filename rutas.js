@@ -1,3 +1,4 @@
+const { query } = require("express");
 const fetch = require("node-fetch");
 const bbdd = require("./bbdd.js"); //Módulos propios BBDD
 
@@ -7,10 +8,37 @@ const bbdd = require("./bbdd.js"); //Módulos propios BBDD
 HOME
 ---------------------------------------------------------------------- */
 exports.getHome = (req, res) => {
-  res.render("Home", {
-    title: "Pixel Movie",
-  });
-  // bbdd.getClient(titulo);
+  let i=0;
+  bbdd
+  .getFilmsDetail()
+  .then((datos)=>
+  // console.log(datos[0]))
+  res
+  .status(200)
+  .render("Home", {
+    titulo:datos[i].titulo,
+    director:datos[i].director,
+    poster:datos[i].poster,
+    released:datos[i].released,
+    runtime:datos[i].runtime,
+    score:datos[i].score,
+  }))
+  // .catch((e)=>console.log("ocurrió un error:" +e));
+};
+/* ----------------------------------------------------------------------
+FORMULARIO
+---------------------------------------------------------------------- */
+exports.getForm = (req, res) => {
+  res
+    .status(200)
+    .render("Form", { title: "Formulario", action: "Crear Película" });
+};
+
+exports.postForm = (req, res) => {
+  console.log(req.body.film);
+  var film = req.body;
+  bbdd.createFilm(film);
+  res.status(200).redirect("/");
 };
 /* ----------------------------------------------------------------------
 PAGINA DE DETALLES COGIDOS DE LA API
@@ -35,24 +63,7 @@ exports.getFilmApi = (req, res) => {
     });
 };
 /* ----------------------------------------------------------------------
-PAGINA DE DETALLES FAVORITOS
----------------------------------------------------------------------- */
-exports.getFilmDetail = (req, res) => {
-  res.status(200).render("Film", {
-    // titular: "Editar",
-    titulo: req.query.titulo,
-    director: req.query.director,
-    id: req.query.id,
-    released: req.query.released,
-    runtime: req.query.runtime,
-    poster: req.query.poster,
-    watched: req.query.watched,
-    liked: req.query.liked,
-    score: req.query.score,
-  });
-};
-/* ----------------------------------------------------------------------
----------------------------PAGINA DE EDITAR------------------------------
+PAGINA DE EDITAR
 ---------------------------------------------------------------------- */
 exports.editFilm = (req, res) => {
   res.status(200).render("Form", {
@@ -69,22 +80,38 @@ exports.editFilm = (req, res) => {
   });
 };
 /* ----------------------------------------------------------------------
----------------------------PAGINA DE FORMULARIO--------------------------
+PAGINA DE DETALLES FAVORITOS
 ---------------------------------------------------------------------- */
-exports.getForm = (req, res) => {
-  res
-    .status(200)
-    .render("Form", { title: "Formulario", action: "Crear Película" });
+exports.getFilmDetail = (req, res) => {
+  res.status(200).render("Film", {
+    // titular: "Editar",
+    titulo: req.query.titulo,
+    director: req.query.director,
+    id: req.query.id,
+    released: req.query.released,
+    runtime: req.query.runtime,
+    poster: req.query.poster,
+    watched: req.query.watched,
+    liked: req.query.liked,
+    score: req.query.score,
+  });
 };
-
-exports.postForm = (req, res) => {
-  console.log(req.body);
-  var film = req.body;
-  bbdd.createFilm(film);
-  res.status(200).redirect("/");
-};
+// exports.getFilmDetail = (req, res) => {
+//   res.status(200).render("Film", {
+//     // titular: "Editar",
+//     titulo: req.query.titulo,
+//     director: req.query.director,
+//     id: req.query.id,
+//     released: req.query.released,
+//     runtime: req.query.runtime,
+//     poster: req.query.poster,
+//     watched: req.query.watched,
+//     liked: req.query.liked,
+//     score: req.query.score,
+//   });
+// };
 /* ----------------------------------------------------------------------
--------------------------ENRUTAMIENTO CON LA API-------------------------
+ENRUTAMIENTO CON LA API
 ---------------------------------------------------------------------- */
 const apikey = "ca4abc94";
 
@@ -107,7 +134,7 @@ exports.getApiFilm = (req, res) => {
     });
 };
 /* ----------------------------------------------------------------------
-------------------------TODAS LAS DEMÁS PÁGINAS--------------------------
+TODAS LAS DEMÁS PÁGINAS
 ---------------------------------------------------------------------- */
 exports.getAll = (req, res) => {
   res.status(404).render("error", { title: "Error" });

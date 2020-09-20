@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------
-// BUSCAR UNA PELÍCULA EN LA API-----------------------------------------
+// BUSCAR UNA PELÍCULA EN LA API
 // ----------------------------------------------------------------------
 function getFilmDetails() {
   let pelicula = document.getElementById("movSearch");
@@ -10,7 +10,7 @@ document
   .addEventListener("click", getFilmDetails);
 
 // ----------------------------------------------------------------------
-// BORRAR UNA PELI DE FAVORITOS DESDE LA HOME----------------------------
+// BORRAR UNA PELI DE FAVORITOS DESDE LA HOME
 // ----------------------------------------------------------------------
 function deleteFilmDetails(titulo) {
   let filmsSaved = JSON.parse(localStorage.getItem("filmsStored"));
@@ -31,7 +31,7 @@ function deleteFilmDetails(titulo) {
   }
 }
 // ----------------------------------------------------------------------
-// EDITAR LOS CAMPOS DE FAVORITOS ---------------------------------------
+// EDITAR LOS CAMPOS DE FAVORITOS
 // ----------------------------------------------------------------------
 function editFilmDetails(titulo) {
   let filmsSaved = JSON.parse(localStorage.getItem("filmsStored"));
@@ -63,7 +63,7 @@ function editFilmDetails(titulo) {
 }
 
 // ----------------------------------------------------------------------
-// MOSTRAR DETALLES DE FAVORITOS ---------------------------------------
+// MOSTRAR DETALLES DE FAVORITOS
 // ----------------------------------------------------------------------
 function seeFilmDetails(titulo) {
   let filmsSaved = JSON.parse(localStorage.getItem("filmsStored"));
@@ -96,7 +96,7 @@ function seeFilmDetails(titulo) {
 // location.replace("/films/"+filmsSaved[i].titulo); //Coge los detalles del fetch
 
 // ----------------------------------------------------------------------
-// ESCRIBIR EN LA HOME LAS PELÍCULAS DE LOCALSTORAGE---------------------
+// ESCRIBIR EN LA HOME LAS PELÍCULAS DE LOCALSTORAGE
 // ----------------------------------------------------------------------
 let saved = JSON.parse(localStorage.getItem("filmsStored"));
 for (let i = 0; i < saved.length; i++) {
@@ -108,7 +108,7 @@ for (let i = 0; i < saved.length; i++) {
   let card = `
   <h2 id="filmTit" class="fontPix">${saved[i].titulo}</h2>
   <div id="smallFilmHome">
-    <img id="posterApi" src="${saved[i].poster}" alt="Film Poster" />
+    <img id="poster" src="${saved[i].poster}" alt="Film Poster" />
     <div id="detFilmHome">
         <div class="catFilmHome">
             <p class="key fontSecondBold">Director</p>

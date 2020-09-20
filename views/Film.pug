@@ -17,7 +17,7 @@ html
             h2#filmTit.fontPix=titulo
             div#smallFilm
                 div#smallSup
-                    img#posterApi(src=poster, alt="Poster Film")
+                    img#poster(src=poster, alt="Poster Film")
                     div#detFilmHome
                         div.catFilmHome
                             p.fontSecondBold.key="Director"
@@ -37,7 +37,7 @@ html
                     p(class="value fontSecond")=plot
         nav#navSheet
             //- a(href="#" id="butEditS" class="but fontSecond")="Editar"
-            a(href="#" id="butDeleteS" class="but fontSecond")="Guardar en favoritos"
+            a(href="#" id="butSaveF" class="but fontSecond")="Guardar en favoritos"
             //- a(href="#" id="butSaveS" class="but fontSecond")="Guardar en favoritos"
         footer.fontSecond="Made by Marta Pulido 2020"
         script(src="scriptHome.js" )

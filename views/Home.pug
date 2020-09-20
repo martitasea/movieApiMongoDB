@@ -1,15 +1,15 @@
 html
     head
         title=title
-        link(rel='stylesheet' type='text/css' href='./css/style.css')
-        link(rel='icon' type='image/png' href="./img/camera.png")
-        link(rel='icon' type='image/png' href="../img/camera.png")
-        script(src="scriptHome.js" defer)
+        //- link(rel='stylesheet' type='text/css' href='./css/reset.css')
+        link(rel='stylesheet' type='text/css' href='css/style.css')
+        link(rel='icon' type='image/png' href="img/camera.png")
+        
     body
         header#header
             div#headerTit
                 img#logo(src="./img/camera.png", alt="camera")
-                h1.fontPix=title
+                h1.fontPix="Pixel Movie"
             nav#header
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
                 a(href="/formulario" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
@@ -20,28 +20,28 @@ html
         p#favTit.big.fontSecond="Tus peliculas favoritas"
         div#sheetPlusNav
             div#sheet
-                //- h2#filmTit.fontPix="Titanic"
-                //- div#smallFilmHome
-                //-     img#poster(src="poster.jpg", alt="Poster Film")
-                //-     div#detFilmHome
-                //-         div.catFilmHome
-                //-             p.fontSecondBold.key="Director"
-                //-             p.fontSecond.value="James Cameron"
-                //-         div.catFilmHome
-                //-             p.fontSecondBold.key="Fecha"
-                //-             p.fontSecond.value="19 Dec 1997"
-                //-         div.catFilmHome
-                //-             p.fontSecondBold.key="Duración"
-                //-             p.fontSecond.value="194 min"
-                //-         div#iconsHome
-                //-             img(src="./img/eye.png" alt="watched" id="eye")
-                //-             input(type="checkbox" name="yes" id="watched")
-                //-             img(src="./img/loved.png" alt="loved" id="heart")
-                //-             input(type="checkbox" name="yes" id="liked")
-                //-     div#scoreFilm
-                //-             p.fontPix="7,8"
-            //- nav#navSheet
-        //-     a(href="#" id="butEditS" class="but" class="fontSecond")="Editar"
-        //-     a(href="#" id="butDeleteS" class="but" class="fontSecond")="Borrar"
-        //-     a(href="#" id="butSaveS" class="but" class="fontSecond")="Guardar en favoritos"
+                h2#filmTit.fontPix=titulo
+                div#smallFilmHome
+                    img(id="poster" src=poster, alt="Poster Film")
+                    div#detFilmHome
+                        div.catFilmHome
+                            p.fontSecondBold.key="Director"
+                            p.fontSecond.value=director
+                        div.catFilmHome
+                            p.fontSecondBold.key="Fecha"
+                            p.fontSecond.value=released
+                        div.catFilmHome
+                            p.fontSecondBold.key="Duración"
+                            p.fontSecond.value=runtime
+                        div#iconsHome
+                            img(src="./img/eye.png" alt="watched" id="eye")
+                            input(type="checkbox" name="yes" id="watched")
+                            img(src="./img/loved.png" alt="loved" id="heart")
+                            input(type="checkbox" name="yes" id="liked")
+                    div#scoreFilm
+                            p.fontPix=score
+                nav#navSheet
+                    a(href="#" id="butEditS" class="but fontSecond")="Editar"
+                    a(href="#" id="butDeleteS" class="but fontSecond")="Borrar"
+                    a(href="#" id="butDetailS" class="but" class="fontSecond")="Guardar"
         footer.fontSecond="Made by Marta Pulido 2020"

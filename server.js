@@ -1,8 +1,7 @@
 const port = 3000;
 const express = require("express");
-
 const bodyParser = require("body-parser");
-const rutas=require("./rutas.js") //Módulos propios funcionamiento
+const rutas = require("./rutas.js"); //Módulos propios funcionamiento
 const app = express();
 
 let titulo = "gladiator";
@@ -10,8 +9,8 @@ let titulo = "gladiator";
 //---------------------------------------------------------------------------
 // MIDDLEWARE
 //---------------------------------------------------------------------------
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true })); //hace accesible la info
+app.use(express.static("public"));//esta es la carpeta que mandamos a cliente
 app.use("/films/:titulo", express.static(__dirname + "/public"));
 app.use("/films/detail/:i", express.static(__dirname + "/public"));
 app.use("/films/edit/:i", express.static(__dirname + "/public"));
@@ -21,8 +20,6 @@ app.use("/films/edit/:i", express.static(__dirname + "/public"));
 //---------------------------------------------------------------------------
 app.set("view engine", "./views"); //De donde lee el pug
 app.set("view engine", "pug"); //Definimos el motor de vista
-
-
 
 //---------------------------------------------------------------------------
 //RUTAS
@@ -35,7 +32,7 @@ app.get("/", rutas.getHome);
 app.get("/films/:titulo", rutas.getFilmApi);
 
 //PAGINA DE DETALLES FAVORITOS
-app.get("/films/detail/:id", rutas.getFilmDetail);
+app.get("/films/detail/:titulo", rutas.getFilmDetail);
 
 // PAGINA DE EDITAR
 app.get("/films/edit/:id", rutas.editFilm);
