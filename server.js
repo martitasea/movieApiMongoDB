@@ -3,8 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const rutas = require("./rutas.js"); //Módulos propios funcionamiento
 const app = express();
-
-let titulo = "gladiator";
+// let titulo = "gladiator";
 
 //---------------------------------------------------------------------------
 // MIDDLEWARE
@@ -36,6 +35,9 @@ app.get("/films/detail/:titulo", rutas.getFilmDetail);
 
 // PAGINA DE EDITAR
 app.get("/films/edit/:id", rutas.editFilm);
+
+// PAGINA DE BORRAR
+// app.post("/films/delete/:id", rutas.deleteFilm);
 
 //PAGINA DE FORMULARIO
 app.get("/formulario", rutas.getForm);

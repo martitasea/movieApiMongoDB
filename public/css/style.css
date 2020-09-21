@@ -67,7 +67,7 @@ header#header {
 }
 div#headerTit {
   border: 2px solid var(--main-color);
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -95,7 +95,7 @@ a#butSave {
   padding: 0 12vw;
   color: white;
   position: relative;
-  bottom: 0.4vh;
+  /* bottom: 0.4vh; */
   z-index: 1;
   text-decoration: none;
   border-radius: 0 0 10px 10px;
@@ -175,7 +175,7 @@ div#smallFilm {
 }
 div#smallFilmHome {
   border: 2px solid var(--main-color);
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 0px 0px;
   display: flex;
   flex-direction: row;
   padding: 1vw 0 1vw 1vw;
@@ -257,7 +257,7 @@ nav#navSheet {
   justify-content: space-between;
   margin: 0 0 8vw 0;
 }
-#buttonSave,
+
 #butEditS,
 #butDeleteS,
 #butDetailS,
@@ -274,14 +274,26 @@ nav#navSheet {
   line-height: 4vh;
 }
 #butSaveF{
-  /* line-height: 4vh; */
+  line-height: 4vh;
   margin-left: 2vw;
   z-index: -5;
+}
+#buttonSave{
+  font-size: var(--font-size-regular-nav);
+  color: white;
+  padding: 0 9vw;
+  text-decoration: none;
+  position: relative;
+  z-index: 0;
+  background-color: var(--main-color-hover);
+  border-radius: 0 0 10px 10px;
+  line-height: 4vh;
+  border-color: var(--main-color-hover);
 }
 /* ----------------------------------------------------------------------
 ------------------------------------FORM---------------------------------
 ---------------------------------------------------------------------- */
-form#smallFilmForm {
+div#smallFilmForm {
   border: 2px solid var(--main-color);
   border-radius: 0px 0px 10px 10px;
   display: flex;

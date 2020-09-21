@@ -12,18 +12,12 @@ exports.getHome = (req, res) => {
   bbdd
   .getFilmsDetail()
   .then((datos)=>
-  // console.log(datos[0]))
   res
   .status(200)
   .render("Home", {
-    titulo:datos[i].titulo,
-    director:datos[i].director,
-    poster:datos[i].poster,
-    released:datos[i].released,
-    runtime:datos[i].runtime,
-    score:datos[i].score,
+    films:datos,
   }))
-  // .catch((e)=>console.log("ocurrió un error:" +e));
+  .catch((e)=>console.log("ocurrió un error:" +e));
 };
 /* ----------------------------------------------------------------------
 FORMULARIO
@@ -62,6 +56,25 @@ exports.getFilmApi = (req, res) => {
       });
     });
 };
+
+/* ----------------------------------------------------------------------
+PAGINA DE BORRAR
+---------------------------------------------------------------------- */
+// exports.deleteFilm=(req,res)=>{
+//   fetch(`./films/delete/:i`, {
+//     method:"POST",
+//     headers:{
+//       "Content-Type": "application/json;charset=utf-8"
+//     },
+//     body: JSON.stringify(user)
+//   });
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (myJson) {
+//   });
+// };
+
 /* ----------------------------------------------------------------------
 PAGINA DE EDITAR
 ---------------------------------------------------------------------- */

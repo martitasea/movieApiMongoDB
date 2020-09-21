@@ -98,46 +98,46 @@ function seeFilmDetails(titulo) {
 // ----------------------------------------------------------------------
 // ESCRIBIR EN LA HOME LAS PELÍCULAS DE LOCALSTORAGE
 // ----------------------------------------------------------------------
-let saved = JSON.parse(localStorage.getItem("filmsStored"));
-for (let i = 0; i < saved.length; i++) {
-  let visto = "";
-  if (saved[i].watched == "on") {
-    visto = "checked";
-  } else visto = "";
+// let saved = JSON.parse(localStorage.getItem("filmsStored"));
+// for (let i = 0; i < saved.length; i++) {
+//   let visto = "";
+//   if (saved[i].watched == "on") {
+//     visto = "checked";
+//   } else visto = "";
 
-  let card = `
-  <h2 id="filmTit" class="fontPix">${saved[i].titulo}</h2>
-  <div id="smallFilmHome">
-    <img id="poster" src="${saved[i].poster}" alt="Film Poster" />
-    <div id="detFilmHome">
-        <div class="catFilmHome">
-            <p class="key fontSecondBold">Director</p>
-            <p class="value fontSecond">${saved[i].director}</p>
-        </div>
-        <div class="catFilmHome">
-            <p class="key fontSecondBold">Fecha</p>
-            <p class="value fontSecond">${saved[i].released}</p>
-        </div>
-        <div class="catFilmHome">
-            <p class="key fontSecondBold">Duración</p>
-            <p class="value fontSecond">${saved[i].runtime}</p>
-        </div>
-        <div id="iconsHome">
-            <img src="./img/eye.png" alt="watched" id="eye"/>
-            <input type="checkbox" name="yes" id="watched" ${visto}/>
-            <img src="./img/loved.png" alt="loved" id="heart"/>
-            <input type="checkbox" name="yes" id="liked" value="${saved[i].liked}"/>
-        </div>
-    </div>
-    <div id="scoreFilm">
-      <p class="fontPix">${saved[i].score}</p>
-    </div>    
-  </div>
-  <nav id="navSheet">
-    <a href="#" id="butEditS" class="but fontSecond" onclick="editFilmDetails('${saved[i].titulo}')">Editar</a>
-    <a href="#" id="butDeleteS" class="but fontSecond" onclick="deleteFilmDetails('${saved[i].titulo}')">Borrar</a>
-    <a href="#" id="butDetailS" class="but fontSecond" onclick="seeFilmDetails('${saved[i].titulo}')">Detalles</a>
-  </nav>
-  `;
-  document.getElementById("sheet").innerHTML += card;
-}
+//   let card = `
+//   <h2 id="filmTit" class="fontPix">${saved[i].titulo}</h2>
+//   <div id="smallFilmHome">
+//     <img id="posterApi" src="${saved[i].poster}" alt="Film Poster" />
+//     <div id="detFilmHome">
+//         <div class="catFilmHome">
+//             <p class="key fontSecondBold">Director</p>
+//             <p class="value fontSecond">${saved[i].director}</p>
+//         </div>
+//         <div class="catFilmHome">
+//             <p class="key fontSecondBold">Fecha</p>
+//             <p class="value fontSecond">${saved[i].released}</p>
+//         </div>
+//         <div class="catFilmHome">
+//             <p class="key fontSecondBold">Duración</p>
+//             <p class="value fontSecond">${saved[i].runtime}</p>
+//         </div>
+//         <div id="iconsHome">
+//             <img src="./img/eye.png" alt="watched" id="eye"/>
+//             <input type="checkbox" name="yes" id="watched" ${visto}/>
+//             <img src="./img/loved.png" alt="loved" id="heart"/>
+//             <input type="checkbox" name="yes" id="liked" value="${saved[i].liked}"/>
+//         </div>
+//     </div>
+//     <div id="scoreFilm">
+//       <p class="fontPix">${saved[i].score}</p>
+//     </div>
+//   </div>
+//   <nav id="navSheet">
+//     <a href="#" id="butEditS" class="but fontSecond" onclick="editFilmDetails('${saved[i].titulo}')">Editar</a>
+//     <a href="#" id="butDeleteS" class="but fontSecond" onclick="deleteFilmDetails('${saved[i].titulo}')">Borrar</a>
+//     <a href="#" id="butDetailS" class="but fontSecond" onclick="seeFilmDetails('${saved[i].titulo}')">Detalles</a>
+//   </nav>
+//   `;
+//   document.getElementById("sheet").innerHTML += card;
+// }

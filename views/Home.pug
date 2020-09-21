@@ -16,32 +16,40 @@ html
         div#search
             input(type="text" placeholder="Busca una película" id="movSearch").big.fontSecond
             div
-            button(type=button id="buttonSearch" class="fontSecond")="Obtén detalles"
+            button(type="button" id="buttonSearch" class="fontSecond")="Obtén detalles"
         p#favTit.big.fontSecond="Tus peliculas favoritas"
         div#sheetPlusNav
             div#sheet
-                h2#filmTit.fontPix=titulo
-                div#smallFilmHome
-                    img(id="poster" src=poster, alt="Poster Film")
-                    div#detFilmHome
-                        div.catFilmHome
-                            p.fontSecondBold.key="Director"
-                            p.fontSecond.value=director
-                        div.catFilmHome
-                            p.fontSecondBold.key="Fecha"
-                            p.fontSecond.value=released
-                        div.catFilmHome
-                            p.fontSecondBold.key="Duración"
-                            p.fontSecond.value=runtime
-                        div#iconsHome
-                            img(src="./img/eye.png" alt="watched" id="eye")
-                            input(type="checkbox" name="yes" id="watched")
-                            img(src="./img/loved.png" alt="loved" id="heart")
-                            input(type="checkbox" name="yes" id="liked")
-                    div#scoreFilm
-                            p.fontPix=score
-                nav#navSheet
-                    a(href="#" id="butEditS" class="but fontSecond")="Editar"
-                    a(href="#" id="butDeleteS" class="but fontSecond")="Borrar"
-                    a(href="#" id="butDetailS" class="but" class="fontSecond")="Guardar"
+                //- ul
+                //-     each film in films
+                //-         li= peli.titulo
+                //-     else
+                //-         li There are no values
+                each film in films
+                    h2#filmTit.fontPix=film.film
+                    div#smallFilmHome
+                        img(id="poster" src=film.poster, alt="Poster Film")
+                        div#detFilmHome
+                            div.catFilmHome
+                                p.fontSecondBold.key="Director"
+                                p.fontSecond.value=film.director
+                            div.catFilmHome
+                                p.fontSecondBold.key="Fecha"
+                                p.fontSecond.value=film.released
+                            div.catFilmHome
+                                p.fontSecondBold.key="Duración"
+                                p.fontSecond.value=film.runtime
+                            div#iconsHome
+                                img(src="./img/eye.png" alt="watched" id="eye")
+                                input(type="checkbox" name="yes" id="watched")
+                                img(src="./img/loved.png" alt="loved" id="heart")
+                                input(type="checkbox" name="yes" id="liked")
+                        div#scoreFilm
+                                p.fontPix=score
+                    nav#navSheet
+                        a(href="#" id="butEditS" class="but fontSecond")="Editar"
+                        a(href="#" id="butDeleteS" class="but fontSecond")="Borrar"
+                        a(href="#" id="butDetailS" class="but" class="fontSecond")="Guardar"
+                else 
+                    p There are no values
         footer.fontSecond="Made by Marta Pulido 2020"

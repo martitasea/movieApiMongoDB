@@ -29,7 +29,6 @@ const connect = async () => {
   });
   return client;
 };
-
 //---------------------------------------------------------------------------
 // CRUD
 // https://developer.mongodb.com/quickstart/node-crud-tutorial
@@ -77,58 +76,11 @@ exports.getFilmsDetail = async () => {
      .find()
      .toArray();
   if (result) {
-    //  console.log(result[0].titulo);
-     return result;
+    return result;
 } else {
      return null
    }
  };
-
-// exports.getFilmsDetail = async () => {
-//   const client = await connect();
-//   let query={titulo:"El Golpe"}
-//    result = await client
-//      .db("moviedb")
-//      .collection("peliculas")
-//      .find()
-//      .toArray();
-//    if (result) {
-//      let titulo=query.titulo
-//      console.log("Hay resultado");
-//      console.log(query.director)
-//      return result;
-// } else {
-//      return null
-//    }
-//  };
-
-//  async function findMany() {
-//   const client = await MongoClient.connect(url, {
-//     useNewUrlParser: true, useUnifiedTopology: true
-//   })
-//   .catch(err => {console.log(err)});
- 
-//   if (!client) {
-//     return;
-//   }
-
-//   try {
-//     const db = client.db("mydb");
-//     let collection = db.collection("clientes");
-//     let query = { name: "Peter" };
-//     let res = await collection.find(query).toArray();
-//     console.log(res);
-    
-//   } catch (err) {
-//     console.log(err);
-//   } finally {
-//     client.close();
-//   }
-// };
-
-// findMany();
-
-
 //----------------------------------------------------------------------------
 // U_ACTUALIZAR UNO
 //----------------------------------------------------------------------------
