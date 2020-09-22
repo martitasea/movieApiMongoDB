@@ -10,25 +10,23 @@ document
   .addEventListener("click", getFilmDetails);
 
 // ----------------------------------------------------------------------
-// BORRAR UNA PELI DE FAVORITOS DESDE LA HOME
+// BORRAR UNA PELI DE BBDD DESDE LA HOME
 // ----------------------------------------------------------------------
-function deleteFilmDetails(titulo) {
-  let filmsSaved = JSON.parse(localStorage.getItem("filmsStored"));
-  console.log(filmsSaved);
-  for (let i = 0; i < filmsSaved.length; i++) {
-    console.log(filmsSaved[i].titulo);
-    console.log(titulo);
-    if (filmsSaved[i].titulo == titulo) {
-      console.log(filmsSaved[i].titulo);
-      let confirmation = confirm("¿Seguro que quieres borrarla?");
-      if (confirmation) {
-        filmsSaved.splice(i, 1);
-        localStorage.setItem("filmsStored", JSON.stringify(filmsSaved));
-        let url = "/";
-        location.replace(url);
-      }
-    }
-  }
+function deleteFilmDetails(film) {
+  fetch("/films/delete", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({ film: film }),
+  })
+    .then((res) => {
+      console.log(res);
+      location.reload();
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 }
 // ----------------------------------------------------------------------
 // EDITAR LOS CAMPOS DE FAVORITOS

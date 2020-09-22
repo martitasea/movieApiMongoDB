@@ -9,7 +9,8 @@ const app = express();
 // MIDDLEWARE
 //---------------------------------------------------------------------------
 app.use(bodyParser.urlencoded({ extended: true })); //hace accesible la info
-app.use(express.static("public"));//esta es la carpeta que mandamos a cliente
+app.use(bodyParser.json());  // parse application/json
+app.use(express.static("public")); //esta es la carpeta que mandamos a cliente
 app.use("/films/:titulo", express.static(__dirname + "/public"));
 app.use("/films/detail/:i", express.static(__dirname + "/public"));
 app.use("/films/edit/:i", express.static(__dirname + "/public"));
@@ -37,7 +38,7 @@ app.get("/films/detail/:titulo", rutas.getFilmDetail);
 app.get("/films/edit/:id", rutas.editFilm);
 
 // PAGINA DE BORRAR
-// app.post("/films/delete/:id", rutas.deleteFilm);
+app.post("/films/delete", rutas.deleteFilm);
 
 //PAGINA DE FORMULARIO
 app.get("/formulario", rutas.getForm);

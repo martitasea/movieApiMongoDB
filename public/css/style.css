@@ -63,7 +63,7 @@ header#header {
   position: sticky;
   top: 10px;
   margin: 1vh;
-  z-index: 20;
+  z-index: 100;
 }
 div#headerTit {
   border: 2px solid var(--main-color);
@@ -151,6 +151,15 @@ div#sheetPlusNav {
 p#favTit {
   font-size: var(--font-size-regular);
   margin: 4vh 2vw 1vh 2vw;
+}
+p#resTit {
+  font-size: var(--font-size-regular);
+  margin: 0vh 2vw 1vh 0vw;
+  text-align: center;
+  color:white;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  padding: 5px;
 }
 div#sheet {
   display: flex;
@@ -342,4 +351,5 @@ footer {
   bottom: 0;
   width: 100vw;
   margin: 0;
+  z-index: 20;
 }

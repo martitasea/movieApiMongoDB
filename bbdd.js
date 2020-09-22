@@ -50,14 +50,14 @@ exports.createFilm = async (film) => {
 // R_LEER UNO
 //----------------------------------------------------------------------------
 // Esto debe ejecutarse en el botón de detalles de la Home
-exports.getFilmDetail = async (nombre) => {
+exports.getFilmDetail = async (film) => {
   const client = await connect();
    result = await client
      .db("moviedb")
      .collection("peliculas")
-     .findOne({ titulo: nombre });
+     .findOne({ titulo: film });
    if (result) {
-     console.log(`He encontrado un elemento '${nombre}' en la colección:`);
+     console.log(`He encontrado un elemento '${film}' en la colección:`);
      return result;
    } else {
      return null
@@ -112,11 +112,21 @@ exports.getFilmsDetail = async () => {
 //     });
 // }
 
-
-
-
-
 //----------------------------------------------------------------------------
 // D_BORRAR UNO
 //----------------------------------------------------------------------------
 // Esto debe ejecutarse dentro del borrar de la Home
+exports.deleteFilm = async (nameFilm) => {
+  console.log(nameFilm)
+  const client = await connect();
+  const result = await client
+     .db("moviedb")
+     .collection("peliculas")
+     .deleteOne({film:nameFilm})
+//   if (result) {
+//     return result;
+//     console.log(`${result.deletedCount} document(s) was/were deleted.`);
+// } else {
+//      return null
+//    }
+ };

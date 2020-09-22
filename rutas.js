@@ -2,22 +2,19 @@ const { query } = require("express");
 const fetch = require("node-fetch");
 const bbdd = require("./bbdd.js"); //Módulos propios BBDD
 
-
-
 /* ----------------------------------------------------------------------
 HOME
 ---------------------------------------------------------------------- */
 exports.getHome = (req, res) => {
-  let i=0;
+  let i = 0;
   bbdd
-  .getFilmsDetail()
-  .then((datos)=>
-  res
-  .status(200)
-  .render("Home", {
-    films:datos,
-  }))
-  .catch((e)=>console.log("ocurrió un error:" +e));
+    .getFilmsDetail()
+    .then((datos) =>
+      res.status(200).render("Home", {
+        films: datos,
+      })
+    )
+    .catch((e) => console.log("ocurrió un error:" + e));
 };
 /* ----------------------------------------------------------------------
 FORMULARIO
@@ -56,24 +53,19 @@ exports.getFilmApi = (req, res) => {
       });
     });
 };
-
 /* ----------------------------------------------------------------------
 PAGINA DE BORRAR
 ---------------------------------------------------------------------- */
-// exports.deleteFilm=(req,res)=>{
-//   fetch(`./films/delete/:i`, {
-//     method:"POST",
-//     headers:{
-//       "Content-Type": "application/json;charset=utf-8"
-//     },
-//     body: JSON.stringify(user)
-//   });
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (myJson) {
-//   });
-// };
+exports.deleteFilm = (req, res) => {
+  bbdd
+    .deleteFilm(req.body.film)
+    .then((response) => {
+      res.send();
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
 
 /* ----------------------------------------------------------------------
 PAGINA DE EDITAR
@@ -131,8 +123,9 @@ const apikey = "ca4abc94";
 exports.getApiFilm = (req, res) => {
   titulo = req.params.title;
   fetch(`http://www.omdbapi.com/?t=${titulo}&apikey=${apikey}`)
-    .thes(function (response) {
-      return response.json();
+    .then(function (response) {
+      // .then((response) => response.json())
+      // return response.json();
     })
     .then(function (myJson) {
       res.send(

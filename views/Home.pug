@@ -30,6 +30,7 @@ html
                     div#smallFilmHome
                         img(id="poster" src=film.poster, alt="Poster Film")
                         div#detFilmHome
+                            p(class="fontSecondBold key" id="id")=id
                             div.catFilmHome
                                 p.fontSecondBold.key="Director"
                                 p.fontSecond.value=film.director
@@ -41,15 +42,16 @@ html
                                 p.fontSecond.value=film.runtime
                             div#iconsHome
                                 img(src="./img/eye.png" alt="watched" id="eye")
-                                input(type="checkbox" name="yes" id="watched")
+                                input(type="checkbox" name="watched" id="watched")
                                 img(src="./img/loved.png" alt="loved" id="heart")
-                                input(type="checkbox" name="yes" id="liked")
+                                input(type="checkbox" name="liked" id="liked")
                         div#scoreFilm
-                                p.fontPix=score
+                                p.fontPix=film.score
                     nav#navSheet
                         a(href="#" id="butEditS" class="but fontSecond")="Editar"
-                        a(href="#" id="butDeleteS" class="but fontSecond")="Borrar"
+                        a(href="#" onclick=`deleteFilmDetails("${film.film}")` id="butDeleteS" class="but fontSecond")="Borrar"
                         a(href="#" id="butDetailS" class="but" class="fontSecond")="Guardar"
                 else 
-                    p There are no values
+                    p#resTit.big.fontSecond No tienes películas guardadas.
         footer.fontSecond="Made by Marta Pulido 2020"
+script(src="scriptHome.js" defer)
