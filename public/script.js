@@ -20,7 +20,7 @@ let newFilm = {
   actors: document.getElementById("actors").innerText,
   plot: document.getElementById("about").innerText,
   awards: document.getElementById("awards").innerText,
-  score:document.getElementById("score").innterText
+  score:document.getElementById("scoreFilm").innerText
 };
 
 console.log(newFilm);
@@ -46,7 +46,7 @@ function deleteFilmDetails(film) {
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
-    body: JSON.stringify({ film: film }),
+    body: JSON.stringify({ title: film }),
   })
     .then((res) => {
       console.log(res);

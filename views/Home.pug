@@ -21,8 +21,8 @@ html
             div#sheet
                 each film in films
                     h2#filmTit.fontPix=film.title
-                    div#smallFilmHome
-                        img(id="poster" src=film.poster, alt="Poster Film")
+                    div#sheetHome
+                        img(id="posterHome" src=film.poster, alt="Poster Film")
                         div#detFilmHome
                             p(class="fontSecondBold key" id="id")=id
                             div.catFilmHome
@@ -39,7 +39,7 @@ html
                                 input(type="checkbox" name="watched" id="watched")
                                 img(src="./img/loved.png" alt="loved" id="heart")
                                 input(type="checkbox" name="liked" id="liked")
-                        div#scoreFilm
+                        div#scoreHome
                                 p.fontPix#score=film.score
                     nav#navSheet
                         a(href="#" id="butEditS" class="but fontSecond")="Editar"

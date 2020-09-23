@@ -169,7 +169,7 @@ div#sheet {
 h2#filmTit {
   font-size: var(--font-size-pixel-film);
   color: white;
-  padding: 1vw 0 1vw 3vw;
+  padding: 1vh 0 1vh 3vw;
   letter-spacing: 0.75vw;
   border-bottom: 2px solid var(--main-color);
   background-color: var(--main-color);
@@ -182,7 +182,7 @@ div#smallFilm {
   flex-direction: column;
   padding: 1vw 0 1vw 1vw;
 }
-div#smallFilmHome {
+div#sheetHome {
   border: 2px solid var(--main-color);
   border-radius: 0px 0px 0px 0px;
   display: flex;
@@ -201,8 +201,12 @@ div#wordsFilm {
   display: flex;
   flex-direction: row;
 }
-#poster {
+#posterHome {
   height: 250px;
+  width: auto;
+}
+#poster {
+  height: 450px;
   width: auto;
 }
 div#detFilmHome {
@@ -254,7 +258,7 @@ input#liked {
   height: 4vw;
   margin: 0 2vw;
 }
-div#score {
+div#scoreFilm {
   margin-right: 2vw;
   /* height: 5vh; */
   font-size: var(--font-size-pixel-score);
@@ -319,9 +323,12 @@ input.form {
   font-size: var(--font-size-regular-nav);
   /* color: red; */
 }
-input#score {
+#scoreFilm,
+#scoreForm,
+#scoreHome {
   width: 40vw;
-  /* background-color: yellow; */
+  margin-right: 2vw;
+  font-size: var(--font-size-pixel-score);
 }
 input#runtime::after {
   content: "min";

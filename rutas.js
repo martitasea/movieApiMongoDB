@@ -22,7 +22,7 @@ FORMULARIO
 exports.getForm = (req, res) => {
   res
     .status(200)
-    .render("Form", { title: "Formulario", action: "Crear Película" });
+    .render("Form", {action: "Crear Película" });
 };
 
 exports.postForm = (req, res) => {
