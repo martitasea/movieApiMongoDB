@@ -1,10 +1,9 @@
 html
     head
         title=title
-        //- link(rel='stylesheet' type='text/css' href='./css/reset.css')
+        link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
-        link(rel='icon' type='image/png' href="img/camera.png")
-        
+        link(rel='icon' type='image/png' href="img/camera.png")  
     body
         header#header
             div#headerTit
@@ -12,32 +11,39 @@ html
                 h1.fontPix="Pixel Movie"
             nav#header
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
-                a(href="/formulario" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
+                a(href="/form" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
         div#sheet
-            h2#filmTit.fontPix=titulo
+            h2#filmTit.fontPix=title
             div#smallFilm
                 div#smallSup
                     img#poster(src=poster, alt="Poster Film")
                     div#detFilmHome
                         div.catFilmHome
                             p.fontSecondBold.key="Director"
-                            p.fontSecond.value=director
+                            p.fontSecond.value#director=director
+                        div.catFilmHome
+                            p.fontSecondBold.key="Género"
+                            p.fontSecond.value#genre=genre
+                        div.catFilmHome
+                            p.fontSecondBold.key="País"
+                            p.fontSecond.value#country=country                            
                         div.catFilmHome
                             p.fontSecondBold.key="Fecha"
-                            p.fontSecond.value=released
+                            p.fontSecond.value#released=released
                         div.catFilmHome
                             p.fontSecondBold.key="Duración"
-                            p.fontSecond.value=runtime
-                        //- div.catFilmHome
-                        //-     p.fontSecondBold.key="Reparto"
-                        //-     p.fontSecond.value#reparto=actors
-                    div#scoreFilm.fontPix=score
+                            p.fontSecond.value#runtime=runtime
+                    div#score.fontPix=score
+                div.catFilmHome
+                    p.fontSecondBold.key="Reparto"
+                    p.fontSecond.value#actors=actors
                 div.catFilmHome#about
                     p(class="key fontSecondBold")="Sinopsis"
                     p(class="value fontSecond")=plot
+                div.catFilmHome#awards
+                    p(class="key fontSecondBold")="Premios"
+                    p(class="value fontSecond")=awards
         nav#navSheet
-            //- a(href="#" id="butEditS" class="but fontSecond")="Editar"
-            a(href="#" id="butSaveF" class="but fontSecond")="Guardar en favoritos"
-            //- a(href="#" id="butSaveS" class="but fontSecond")="Guardar en favoritos"
+            input#butSaveF(type="button" onclick=`saveFilmApi()` value="Guardar en Favoritos" class="fontSecond")
         footer.fontSecond="Made by Marta Pulido 2020"
-        script(src="scriptHome.js" )
+        script(src="script.js" defer)

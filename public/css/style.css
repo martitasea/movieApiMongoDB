@@ -156,7 +156,7 @@ p#resTit {
   font-size: var(--font-size-regular);
   margin: 0vh 2vw 1vh 0vw;
   text-align: center;
-  color:white;
+  color: white;
   background-color: var(--main-color);
   border-radius: 10px;
   padding: 5px;
@@ -236,7 +236,6 @@ div#about {
 div#about p.fontSecond.value {
   font-size: var(--font-size-regular);
   text-align: justify;
-  
 }
 div#iconsHome {
   display: flex;
@@ -255,7 +254,7 @@ input#liked {
   height: 4vw;
   margin: 0 2vw;
 }
-div#scoreFilm {
+div#score {
   margin-right: 2vw;
   /* height: 5vh; */
   font-size: var(--font-size-pixel-score);
@@ -282,12 +281,10 @@ nav#navSheet {
   border-radius: 0 0 10px 10px;
   line-height: 4vh;
 }
-#butSaveF{
-  line-height: 4vh;
+#butSaveF {
   margin-left: 2vw;
-  z-index: -5;
 }
-#buttonSave{
+#buttonSave {
   font-size: var(--font-size-regular-nav);
   color: white;
   padding: 0 9vw;
@@ -335,8 +332,8 @@ div#iconsForm {
   align-items: center;
   margin: 2vh 0 2vh 25vw;
 }
-#id{
-  display:none;
+#id {
+  display: none;
 }
 /* ----------------------------------------------------------------------
 ---------------------------------FOOTER----------------------------------

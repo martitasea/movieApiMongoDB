@@ -1,10 +1,9 @@
 html
     head
         title=title
-        //- link(rel='stylesheet' type='text/css' href='./css/reset.css')
+        link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
-        link(rel='icon' type='image/png' href="img/camera.png")
-        
+        link(rel='icon' type='image/png' href="img/camera.png")  
     body
         header#header
             div#headerTit
@@ -12,7 +11,7 @@ html
                 h1.fontPix="Pixel Movie"
             nav#header
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
-                a(href="/formulario" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
+                a(href="/form" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
         div#sheet
             h2#filmTit.fontPix=action
             form(action="/exito" method="post")
@@ -41,7 +40,7 @@ html
                         input(type="checkbox" name="yes" id="watched" value="watched")
                         img(src="./img/loved.png" alt="loved" id="heart")
                         input(type="checkbox" name="yes" id="liked" value=liked)
-                input(type="submit", value="Enviar" id="buttonSave" class="but fontSecond")
+                input(type="submit" value="Enviar" id="buttonSave" class="but fontSecond")
                 
                 //- a(href="/" id="buttonSave" class="but fontSecond")="Guardar en Favoritos"
         footer.fontSecond="Made by Marta Pulido 2020"

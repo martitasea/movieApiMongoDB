@@ -9,9 +9,9 @@ exports.getHome = (req, res) => {
   let i = 0;
   bbdd
     .getFilmsDetail()
-    .then((datos) =>
+    .then((data) =>
       res.status(200).render("Home", {
-        films: datos,
+        films: data,
       })
     )
     .catch((e) => console.log("ocurrió un error:" + e));
@@ -35,40 +35,39 @@ exports.postForm = (req, res) => {
 PAGINA DE DETALLES COGIDOS DE LA API
 ---------------------------------------------------------------------- */
 exports.getFilmApi = (req, res) => {
-  titulo = req.params.titulo;
-  fetch(`http://www.omdbapi.com/?t=${titulo}&apikey=ca4abc94`)
+  title = req.params.title;
+  fetch(`http://www.omdbapi.com/?t=${title}&apikey=ca4abc94`)
     .then(function (response) {
       return response.json();
     })
     .then(function (myJson) {
       res.render("Film", {
-        titulo: myJson.Title,
+        title: myJson.Title,
         poster: myJson.Poster,
         director: myJson.Director,
         released: myJson.Released,
         runtime: myJson.Runtime,
         actors: myJson.Actors,
         score: myJson.imdbRating,
+        genre: myJson.Genre,
         plot: myJson.Plot,
+        country: myJson.Country,
+        awards: myJson.Awards,
       });
     });
 };
 /* ----------------------------------------------------------------------
-PAGINA DE BORRAR
+XXXXX_______GUARDAR EN BBDD PELI DE LA API
 ---------------------------------------------------------------------- */
-exports.deleteFilm = (req, res) => {
-  bbdd
-    .deleteFilm(req.body.film)
-    .then((response) => {
-      res.send();
-    })
-    .catch((e) => {
-      console.log(e);
-    });
+exports.saveFilmApi = async (req, res) => {
+  console.log("entramos al post");
+  let film = await req.body;
+  bbdd.createFilm(film);
+  res.status(200).redirect("/");
 };
 
 /* ----------------------------------------------------------------------
-PAGINA DE EDITAR
+XXXXX_______PAGINA DE EDITAR
 ---------------------------------------------------------------------- */
 exports.editFilm = (req, res) => {
   res.status(200).render("Form", {
@@ -85,7 +84,20 @@ exports.editFilm = (req, res) => {
   });
 };
 /* ----------------------------------------------------------------------
-PAGINA DE DETALLES FAVORITOS
+PAGINA DE BORRAR
+---------------------------------------------------------------------- */
+exports.deleteFilm = (req, res) => {
+  bbdd
+    .deleteFilm(req.body.film)
+    .then((response) => {
+      res.send();
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+/* ----------------------------------------------------------------------
+XXXXX_______PAGINA DE DETALLES FAVORITOS
 ---------------------------------------------------------------------- */
 exports.getFilmDetail = (req, res) => {
   res.status(200).render("Film", {
@@ -101,22 +113,16 @@ exports.getFilmDetail = (req, res) => {
     score: req.query.score,
   });
 };
-// exports.getFilmDetail = (req, res) => {
-//   res.status(200).render("Film", {
-//     // titular: "Editar",
-//     titulo: req.query.titulo,
-//     director: req.query.director,
-//     id: req.query.id,
-//     released: req.query.released,
-//     runtime: req.query.runtime,
-//     poster: req.query.poster,
-//     watched: req.query.watched,
-//     liked: req.query.liked,
-//     score: req.query.score,
-//   });
-// };
+
 /* ----------------------------------------------------------------------
-ENRUTAMIENTO CON LA API
+TODAS LAS DEMÁS PÁGINAS
+---------------------------------------------------------------------- */
+exports.getAll = (req, res) => {
+  res.status(404).render("error", { title: "Error" });
+};
+
+/* ----------------------------------------------------------------------
+ENRUTAMIENTO CON LA API__NO LO ESTOY USANDO
 ---------------------------------------------------------------------- */
 const apikey = "ca4abc94";
 
@@ -138,10 +144,4 @@ exports.getApiFilm = (req, res) => {
           "."
       );
     });
-};
-/* ----------------------------------------------------------------------
-TODAS LAS DEMÁS PÁGINAS
----------------------------------------------------------------------- */
-exports.getAll = (req, res) => {
-  res.status(404).render("error", { title: "Error" });
 };

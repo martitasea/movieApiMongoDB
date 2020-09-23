@@ -8,10 +8,10 @@ const app = express();
 //---------------------------------------------------------------------------
 // MIDDLEWARE
 //---------------------------------------------------------------------------
-app.use(bodyParser.urlencoded({ extended: true })); //hace accesible la info
-app.use(bodyParser.json());  // parse application/json
+app.use(bodyParser.urlencoded({ extended: false })); //hace accesible la info
+app.use(bodyParser.json()); // parse application/json
 app.use(express.static("public")); //esta es la carpeta que mandamos a cliente
-app.use("/films/:titulo", express.static(__dirname + "/public"));
+app.use("/films/:title", express.static(__dirname + "/public"));
 app.use("/films/detail/:i", express.static(__dirname + "/public"));
 app.use("/films/edit/:i", express.static(__dirname + "/public"));
 
@@ -29,26 +29,28 @@ app.set("view engine", "pug"); //Definimos el motor de vista
 app.get("/", rutas.getHome);
 
 //PAGINA DETALLES COGIDOS DE LA API
-app.get("/films/:titulo", rutas.getFilmApi);
+app.get("/films/:title", rutas.getFilmApi);
 
-//PAGINA DE DETALLES FAVORITOS
-app.get("/films/detail/:titulo", rutas.getFilmDetail);
+//MOSTRAR DETALLES HOME
+app.get("/films/detail/:title", rutas.getFilmDetail);
 
-// PAGINA DE EDITAR
+//MOSTRAR EDITAR HOME
 app.get("/films/edit/:id", rutas.editFilm);
 
-// PAGINA DE BORRAR
+//BORRAR DE HOME
 app.post("/films/delete", rutas.deleteFilm);
 
 //PAGINA DE FORMULARIO
-app.get("/formulario", rutas.getForm);
+app.get("/form", rutas.getForm);
 app.post("/exito", rutas.postForm);
+//Guardar en Formulario
 
 //ENRUTAMIENTO CON LA API
-app.get("/api/films/:titulo", rutas.getApiFilm);
+app.get("/api/films/:title", rutas.getApiFilm);
 
 //TODAS LAS DEMÁS PÁGINAS
 app.get("*", rutas.getAll);
+app.post("/filmsave", rutas.saveFilmApi);
 
 /* ----------------------------------------------------------------------
 DEFINICIÓN DEL PUERTO AL QUE TIENEN QUE ATENDER
