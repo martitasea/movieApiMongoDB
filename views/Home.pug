@@ -42,7 +42,7 @@ html
                         div#scoreHome
                                 p.fontPix#score=film.score
                     nav#navSheet
-                        a(href="#" id="butEditS" class="but fontSecond")="Editar"
+                        a(href="#" onclick=`readFilmDetails("${film.title}")` id="butEditS" class="but fontSecond")="Editar"
                         a(href="#" onclick=`deleteFilmDetails("${film.title}")` id="butDeleteS" class="but fontSecond")="Borrar"
                         a(href="#" onclick=`seeFilmDetails("${film.title}")` id="butDetailS" class="but" class="fontSecond")="Detalles"
                 else 

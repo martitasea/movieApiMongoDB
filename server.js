@@ -13,7 +13,7 @@ app.use(bodyParser.json()); // parse application/json
 app.use(express.static("public")); //esta es la carpeta que mandamos a cliente
 app.use("/films/:title", express.static(__dirname + "/public"));
 app.use("/films/detail/:title", express.static(__dirname + "/public"));
-app.use("/films/edit/:i", express.static(__dirname + "/public"));
+app.use("/film/edit/:title", express.static(__dirname + "/public"));
 
 //---------------------------------------------------------------------------
 // MOTOR DE VISTA
@@ -35,10 +35,10 @@ app.get("/films/:title", rutas.getFilmApi);
 app.get("/films/detail/:title", rutas.getFilmDetail);
 
 //MOSTRAR EDITAR HOME
-app.get("/films/edit/:id", rutas.editFilm);
+app.get("/film/edit/:title", rutas.editFilm);
 
 //BORRAR DE HOME
-app.post("/filmdelete", rutas.deleteFilm);
+app.post("/film/delete", rutas.deleteFilm);
 
 //PAGINA DE FORMULARIO
 app.get("/form", rutas.getForm);

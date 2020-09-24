@@ -1,3 +1,5 @@
+const bodyParser = require("body-parser");
+
 var MongoClient = require("mongodb").MongoClient;
 var url = "mongodb://localhost:27017/";
 
@@ -69,7 +71,11 @@ exports.getFilmDetail = async (titulo) => {
 // Esto debe leerse en la Home
 exports.getFilmsDetail = async () => {
   const client = await connect();
-  result = await client.db("moviedb").collection("peliculas").find().toArray();
+  result = await client
+  .db("moviedb")
+  .collection("peliculas")
+  .find()
+  .toArray();
   if (result) {
     return result;
   } else {
@@ -79,8 +85,23 @@ exports.getFilmsDetail = async () => {
 //----------------------------------------------------------------------------
 // U_ACTUALIZAR UNO
 //----------------------------------------------------------------------------
-// Esto debe ejecutarse dentro del detalles de la Home
-// exports.updateFilm=(db, id, nuevaDir)=>{
+exports.updateFilm = async () => {
+  const client = await connect();
+  console.log("esta es la req")
+  console.log(req.body.params)
+  result = await client
+  .db("moviedb")
+  .collection("peliculas")
+  .updateOne();
+  // .toArray();
+  if (result) {
+    return result;
+  } else {
+    return null;
+  }
+};
+
+// exports.updateFilm=(id, nuevaDir)=>{
 //   var dbo = db.db("moviedb");
 //   var myquery = { id: id };
 //   var newvalues = { $set: { address: nuevaDir } };
@@ -117,10 +138,10 @@ exports.deleteFilm = async (nameFilm) => {
     .collection("peliculas")
     .deleteOne({ title: nameFilm });
   console.log(`${result.deletedCount} document(s) was/were deleted.`);
-  //   if (result) {
-  //     return result;
-  //     `);
-  // } else {
-  //      return null
-  //    }
+  //Esto lo tenía comentado
+    if (result) {
+      return result;
+  } else {
+       return null
+     }
 };

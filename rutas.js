@@ -61,24 +61,6 @@ exports.saveFilmApi = async (req, res) => {
   bbdd.createFilm(film);
   res.status(200).redirect("/");
 };
-
-/* ----------------------------------------------------------------------
-XXXXX_______PAGINA DE EDITAR
----------------------------------------------------------------------- */
-exports.editFilm = (req, res) => {
-  res.status(200).render("Form", {
-    id: req.params.id,
-    action: "Editar Película",
-    titulo: req.query.titulo,
-    director: req.query.director,
-    released: req.query.released,
-    runtime: req.query.runtime,
-    poster: req.query.poster,
-    watched: req.query.watched,
-    liked: req.query.liked,
-    score: req.query.score,
-  });
-};
 /* ----------------------------------------------------------------------
 PAGINA DE BORRAR
 ---------------------------------------------------------------------- */
@@ -94,29 +76,57 @@ exports.deleteFilm = (req, res) => {
     });
 };
 /* ----------------------------------------------------------------------
-XXXXX_______PAGINA DE DETALLES FAVORITOS
+PAGINA DE DETALLES FAVORITOS
 ---------------------------------------------------------------------- */
 exports.getFilmDetail = (req, res) => {
   var titulo = req.params.title;
   bbdd
     .getFilmDetail(titulo)
     .then((response) => {
-      console.log("aaaa");
       console.log(response);
       res.render("Film", {
-        title:response.title,
-        poster:response.poster,
-        director:response.director,
-        genre:response.genre,
-        country:response.country,
-        released:response.released,
-        runtime:response.runtime,
-        score:response.score,
-        actors:response.actors,
+        title: response.title,
+        poster: response.poster,
+        director: response.director,
+        genre: response.genre,
+        country: response.country,
+        released: response.released,
+        runtime: response.runtime,
+        score: response.score,
+        actors: response.actors,
         plot: response.plot,
-        awards:response.awards
+        awards: response.awards,
       });
-      //res.json({ mensahe: response });
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
+/* ----------------------------------------------------------------------
+XXXXX_______PAGINA DE EDITAR
+---------------------------------------------------------------------- */
+exports.editFilm = (req, res) => {
+  var titulo = req.params.title;
+  // console.log(id);
+  bbdd
+    .getFilmDetail(titulo)
+    .then((response) => {
+      console.log(response)
+      res.render("Form", {
+        action: "Editar",
+        _id:response.id,
+        title: response.title,
+        poster: response.poster,
+        director: response.director,
+        genre: response.genre,
+        country: response.country,
+        released: response.released,
+        runtime: response.runtime,
+        score: response.score,
+        actors: response.actors,
+        plot: response.plot,
+        awards: response.awards,
+      });
     })
     .catch((e) => {
       console.log(e);
