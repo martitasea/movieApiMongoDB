@@ -44,7 +44,7 @@ html
                     nav#navSheet
                         a(href="#" id="butEditS" class="but fontSecond")="Editar"
                         a(href="#" onclick=`deleteFilmDetails("${film.title}")` id="butDeleteS" class="but fontSecond")="Borrar"
-                        a(href="#" id="butDetailS" class="but" class="fontSecond")="Guardar"
+                        a(href="#" onclick=`seeFilmDetails("${film.title}")` id="butDetailS" class="but" class="fontSecond")="Detalles"
                 else 
                     p#resTit.big.fontSecond No tienes películas guardadas.
         footer.fontSecond="Made by Marta Pulido 2020"

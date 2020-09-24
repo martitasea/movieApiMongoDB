@@ -49,18 +49,17 @@ exports.createFilm = async (film) => {
 //----------------------------------------------------------------------------
 // R_LEER UNO
 //----------------------------------------------------------------------------
-// Esto debe ejecutarse en el botón de detalles de la Home
-exports.getFilmDetail = async (film) => {
+exports.getFilmDetail = async (titulo) => {
   const client = await connect();
   result = await client
     .db("moviedb")
     .collection("peliculas")
-    .findOne({ titulo: film });
+    .findOne({ title: titulo });
   if (result) {
-    console.log(`He encontrado un elemento '${film}' en la colección:`);
+    console.log(`He encontrado un elemento '${result.title}' en la colección:`);
     return result;
   } else {
-    return null
+    return null;
   }
 };
 
@@ -74,7 +73,7 @@ exports.getFilmsDetail = async () => {
   if (result) {
     return result;
   } else {
-    return null
+    return null;
   }
 };
 //----------------------------------------------------------------------------
@@ -117,7 +116,7 @@ exports.deleteFilm = async (nameFilm) => {
     .db("moviedb")
     .collection("peliculas")
     .deleteOne({ title: nameFilm });
-    console.log(`${result.deletedCount} document(s) was/were deleted.`);
+  console.log(`${result.deletedCount} document(s) was/were deleted.`);
   //   if (result) {
   //     return result;
   //     `);

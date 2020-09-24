@@ -83,9 +83,7 @@ exports.editFilm = (req, res) => {
 PAGINA DE BORRAR
 ---------------------------------------------------------------------- */
 exports.deleteFilm = (req, res) => {
-  let peli=req.body.title
-  console.log("peli")
-  console.log(peli)
+  let peli = req.body.title;
   bbdd
     .deleteFilm(peli)
     .then((response) => {
@@ -99,18 +97,30 @@ exports.deleteFilm = (req, res) => {
 XXXXX_______PAGINA DE DETALLES FAVORITOS
 ---------------------------------------------------------------------- */
 exports.getFilmDetail = (req, res) => {
-  res.status(200).render("Film", {
-    // titular: "Editar",
-    titulo: req.query.titulo,
-    director: req.query.director,
-    id: req.query.id,
-    released: req.query.released,
-    runtime: req.query.runtime,
-    poster: req.query.poster,
-    watched: req.query.watched,
-    liked: req.query.liked,
-    score: req.query.score,
-  });
+  var titulo = req.params.title;
+  bbdd
+    .getFilmDetail(titulo)
+    .then((response) => {
+      console.log("aaaa");
+      console.log(response);
+      res.render("Film", {
+        title:response.title,
+        poster:response.poster,
+        director:response.director,
+        genre:response.genre,
+        country:response.country,
+        released:response.released,
+        runtime:response.runtime,
+        score:response.score,
+        actors:response.actors,
+        plot: response.plot,
+        awards:response.awards
+      });
+      //res.json({ mensahe: response });
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 };
 
 /* ----------------------------------------------------------------------

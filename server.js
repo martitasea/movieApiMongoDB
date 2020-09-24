@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false })); //hace accesible la info
 app.use(bodyParser.json()); // parse application/json
 app.use(express.static("public")); //esta es la carpeta que mandamos a cliente
 app.use("/films/:title", express.static(__dirname + "/public"));
-app.use("/films/detail/:i", express.static(__dirname + "/public"));
+app.use("/films/detail/:title", express.static(__dirname + "/public"));
 app.use("/films/edit/:i", express.static(__dirname + "/public"));
 
 //---------------------------------------------------------------------------
