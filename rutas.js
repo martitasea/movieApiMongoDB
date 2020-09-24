@@ -20,15 +20,11 @@ exports.getHome = (req, res) => {
 FORMULARIO
 ---------------------------------------------------------------------- */
 exports.getForm = (req, res) => {
-  res
-    .status(200)
-    .render("Form", {action: "Crear Película" });
+  res.status(200).render("Form", { action: "Crear Película" });
 };
 
 exports.postForm = (req, res) => {
-  console.log(req.body.film);
-  var film = req.body;
-  bbdd.createFilm(film);
+  bbdd.createFilm(req.body);
   res.status(200).redirect("/");
 };
 /* ----------------------------------------------------------------------
@@ -57,7 +53,7 @@ exports.getFilmApi = (req, res) => {
     });
 };
 /* ----------------------------------------------------------------------
-XXXXX_______GUARDAR EN BBDD PELI DE LA API
+GUARDAR EN BBDD PELI DE LA API
 ---------------------------------------------------------------------- */
 exports.saveFilmApi = async (req, res) => {
   console.log("entramos al post");
@@ -87,8 +83,11 @@ exports.editFilm = (req, res) => {
 PAGINA DE BORRAR
 ---------------------------------------------------------------------- */
 exports.deleteFilm = (req, res) => {
+  let peli=req.body.title
+  console.log("peli")
+  console.log(peli)
   bbdd
-    .deleteFilm(req.body.film)
+    .deleteFilm(peli)
     .then((response) => {
       res.send();
     })

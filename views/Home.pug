@@ -1,6 +1,6 @@
 html
     head
-        title=title
+        title="Pixel Movie - Home"
         link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
         link(rel='icon' type='image/png' href="img/camera.png")       
@@ -20,7 +20,7 @@ html
         div#sheetPlusNav
             div#sheet
                 each film in films
-                    h2#filmTit.fontPix=film.title
+                    h2#sheetHeader.fontPix=film.title
                     div#sheetHome
                         img(id="posterHome" src=film.poster, alt="Poster Film")
                         div#detFilmHome
@@ -43,7 +43,7 @@ html
                                 p.fontPix#score=film.score
                     nav#navSheet
                         a(href="#" id="butEditS" class="but fontSecond")="Editar"
-                        a(href="#" onclick=`deleteFilmDetails("${film.film}")` id="butDeleteS" class="but fontSecond")="Borrar"
+                        a(href="#" onclick=`deleteFilmDetails("${film.title}")` id="butDeleteS" class="but fontSecond")="Borrar"
                         a(href="#" id="butDetailS" class="but" class="fontSecond")="Guardar"
                 else 
                     p#resTit.big.fontSecond No tienes películas guardadas.

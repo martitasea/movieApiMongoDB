@@ -43,19 +43,22 @@
 .fontSecond {
   font-family: var(--regular-font);
   margin: 0px;
+  color: black;
 }
 .fontSecondBold {
   font-family: var(--bold-font);
   margin: 0px;
+  color: var(--main-color-hover);
 }
 .fontPix {
   font-family: var(--special-font);
   margin: 0px;
 }
 html {
-  color: var(--main-color);
   margin: 0;
+  padding: 0; 
 }
+
 /* ----------------------------------------------------------------------
 ----------------------------------HEADER---------------------------------
 ---------------------------------------------------------------------- */
@@ -75,6 +78,8 @@ div#headerTit {
   align-items: center;
   z-index: 20;
   pointer-events: none;
+  height: 8vh;
+  color:var(--main-color);;
 }
 #logo {
   height: 80px;
@@ -91,7 +96,7 @@ nav#header {
 a#butHome,
 a#butSave {
   font-size: var(--font-size-regular-nav);
-  background-color: var(--main-color-hover);
+  background-color: var(--main-color);
   padding: 0 12vw;
   color: white;
   position: relative;
@@ -122,7 +127,7 @@ div#search div {
   width: 70vw;
   margin: 0.5vh 0 1vh 2vw;
 }
-div#search button {
+#buttonSearch  {
   height: auto;
   border: none;
   background-color: var(--main-color-hover);
@@ -154,29 +159,31 @@ p#favTit {
 }
 p#resTit {
   font-size: var(--font-size-regular);
-  margin: 0vh 2vw 1vh 0vw;
   text-align: center;
   color: white;
   background-color: var(--main-color);
   border-radius: 10px;
   padding: 5px;
+  height: auto;
+  border: none;
+  padding: 1vh 0;
 }
 div#sheet {
   display: flex;
   flex-direction: column;
   margin: 3vw 2vw 0 2vw;
 }
-h2#filmTit {
+h2#sheetHeader {
   font-size: var(--font-size-pixel-film);
   color: white;
   padding: 1vh 0 1vh 3vw;
   letter-spacing: 0.75vw;
-  border-bottom: 2px solid var(--main-color);
-  background-color: var(--main-color);
+  border-bottom: 2px solid var(--main-color-hover);
+  background-color: var(--main-color-hover);
   border-radius: 10px 10px 0px 0px;
 }
 div#smallFilm {
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--main-color-hover);
   border-radius: 0px 0px 10px 10px;
   display: flex;
   flex-direction: column;
@@ -258,11 +265,10 @@ input#liked {
   height: 4vw;
   margin: 0 2vw;
 }
-div#scoreFilm {
+/* div#score {
   margin-right: 2vw;
-  /* height: 5vh; */
   font-size: var(--font-size-pixel-score);
-}
+} */
 nav#navSheet {
   display: flex;
   flex-direction: row;
@@ -304,7 +310,7 @@ nav#navSheet {
 ------------------------------------FORM---------------------------------
 ---------------------------------------------------------------------- */
 div#smallFilmForm {
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--main-color-hover);
   border-radius: 0px 0px 10px 10px;
   display: flex;
   flex-direction: column;
@@ -315,7 +321,7 @@ div.catFilmForm {
   flex-direction: row;
   margin: 0.5vh 0;
 }
-input.form {
+input.form, input#posterForm {
   /* border-style: dashed; */
   border-width: 0 0 0px 0;
   width: 65vw;
@@ -323,12 +329,12 @@ input.form {
   font-size: var(--font-size-regular-nav);
   /* color: red; */
 }
-#scoreFilm,
-#scoreForm,
-#scoreHome {
-  width: 40vw;
-  margin-right: 2vw;
+#score {
+  width: 10vw;
+  /* margin-right: 2vw; */
+  /* margin-left:16vw; */
   font-size: var(--font-size-pixel-score);
+  color: var(--main-color-hover)
 }
 input#runtime::after {
   content: "min";

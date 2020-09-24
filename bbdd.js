@@ -37,32 +37,32 @@ const connect = async () => {
 // C_CREAR UN DOCUMENTO
 //---------------------------------------------------------------------------
 exports.createFilm = async (film) => {
-    const client = await connect();
-    const result = await client
-      .db("moviedb")
-      .collection("peliculas")
-      .insertOne(film);
-    console.log(
-      `Nuevo listado creado con la siguiente identificación: ${result.insertedId}`
-    );
-  };
+  const client = await connect();
+  const result = await client
+    .db("moviedb")
+    .collection("peliculas")
+    .insertOne(film);
+  console.log(
+    `Nuevo listado creado con la siguiente identificación: ${result.insertedId}`
+  );
+};
 //----------------------------------------------------------------------------
 // R_LEER UNO
 //----------------------------------------------------------------------------
 // Esto debe ejecutarse en el botón de detalles de la Home
 exports.getFilmDetail = async (film) => {
   const client = await connect();
-   result = await client
-     .db("moviedb")
-     .collection("peliculas")
-     .findOne({ titulo: film });
-   if (result) {
-     console.log(`He encontrado un elemento '${film}' en la colección:`);
-     return result;
-   } else {
-     return null
-   }
- };
+  result = await client
+    .db("moviedb")
+    .collection("peliculas")
+    .findOne({ titulo: film });
+  if (result) {
+    console.log(`He encontrado un elemento '${film}' en la colección:`);
+    return result;
+  } else {
+    return null
+  }
+};
 
 //----------------------------------------------------------------------------
 // R_LEER MUCHOS
@@ -70,17 +70,13 @@ exports.getFilmDetail = async (film) => {
 // Esto debe leerse en la Home
 exports.getFilmsDetail = async () => {
   const client = await connect();
-  result = await client
-     .db("moviedb")
-     .collection("peliculas")
-     .find()
-     .toArray();
+  result = await client.db("moviedb").collection("peliculas").find().toArray();
   if (result) {
     return result;
-} else {
-     return null
-   }
- };
+  } else {
+    return null
+  }
+};
 //----------------------------------------------------------------------------
 // U_ACTUALIZAR UNO
 //----------------------------------------------------------------------------
@@ -97,7 +93,6 @@ exports.getFilmsDetail = async () => {
 //       db.close();
 //     });
 // }
-
 
 // function actualizarDatos(db, nombre, nuevaDir) {
 //   var dbo = db.db("mydb");
@@ -117,16 +112,16 @@ exports.getFilmsDetail = async () => {
 //----------------------------------------------------------------------------
 // Esto debe ejecutarse dentro del borrar de la Home
 exports.deleteFilm = async (nameFilm) => {
-  console.log(nameFilm)
   const client = await connect();
   const result = await client
-     .db("moviedb")
-     .collection("peliculas")
-     .deleteOne({film:nameFilm})
-//   if (result) {
-//     return result;
-//     console.log(`${result.deletedCount} document(s) was/were deleted.`);
-// } else {
-//      return null
-//    }
- };
+    .db("moviedb")
+    .collection("peliculas")
+    .deleteOne({ title: nameFilm });
+    console.log(`${result.deletedCount} document(s) was/were deleted.`);
+  //   if (result) {
+  //     return result;
+  //     `);
+  // } else {
+  //      return null
+  //    }
+};

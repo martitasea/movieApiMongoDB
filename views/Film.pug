@@ -1,6 +1,6 @@
 html
     head
-        title=title
+        title="Pixel Movie - "+title
         link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
         link(rel='icon' type='image/png' href="img/camera.png")  
@@ -13,7 +13,7 @@ html
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
                 a(href="/form" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
         div#sheet
-            h2#filmTit.fontPix=title
+            h2#sheetHeader.fontPix=title
             div#smallFilm
                 div#smallSup
                     img#poster(src=poster, alt="Poster Film")
@@ -33,7 +33,7 @@ html
                         div.catFilmHome
                             p.fontSecondBold.key="Duración"
                             p.fontSecond.value#runtime=runtime
-                    p#scoreFilm.fontPix=score
+                    p#score.fontPix=score
                 div.catFilmHome
                     p.fontSecondBold.key="Reparto"
                     p.fontSecond.value#actors=actors

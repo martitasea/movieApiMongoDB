@@ -1,6 +1,6 @@
 html
     head
-        title="Formulario"
+        title="Pixel Movie - Formulario"
         link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
         link(rel='icon' type='image/png' href="img/camera.png")  
@@ -13,7 +13,7 @@ html
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
                 a(href="/form" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
         div#sheet
-            h2#filmTit.fontPix=action
+            h2#sheetHeader.fontPix=action
             form(action="/exito" method="post")
                 div#smallFilmForm
                     p(class="fontSecondBold key" id="id")=id
@@ -31,10 +31,10 @@ html
                         input.form(type="text" name="runtime" id="runtime" value=runtime)
                     div.catFilmForm
                         p(class="fontSecondBold key")="Carátula"
-                        input.form(type="url" name="poster" id="poster" value=poster)
+                        input.form(type="url" name="poster" id="posterForm" value=poster)
                     div.catFilmForm
                         p(class="fontSecondBold key")="Puntuación"
-                        input.form(type="range" name="scoreForm" id="scoreForm" min="0" max="10" step="0.1" value=score)
+                        input.form(type="range" name="score" id="score" min="0" max="10" step="0.1" value=score)
                     div#iconsForm
                         img(src="./img/eye.png" alt="watched" id="eye")
                         input(type="checkbox" name="yes" id="watched" value="watched")

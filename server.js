@@ -38,7 +38,7 @@ app.get("/films/detail/:title", rutas.getFilmDetail);
 app.get("/films/edit/:id", rutas.editFilm);
 
 //BORRAR DE HOME
-app.post("/films/delete", rutas.deleteFilm);
+app.post("/filmdelete", rutas.deleteFilm);
 
 //PAGINA DE FORMULARIO
 app.get("/form", rutas.getForm);
