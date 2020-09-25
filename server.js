@@ -42,8 +42,8 @@ app.post("/film/delete", rutas.deleteFilm);
 
 //PAGINA DE FORMULARIO
 app.get("/form", rutas.getForm);
-app.post("/exito", rutas.postForm);
-//Guardar en Formulario
+app.post("/create", rutas.createFilm);
+app.post("/update", rutas.updateFilm);
 
 //ENRUTAMIENTO CON LA API
 app.get("/api/films/:title", rutas.getApiFilm);

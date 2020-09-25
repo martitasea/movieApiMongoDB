@@ -20,10 +20,11 @@ exports.getHome = (req, res) => {
 FORMULARIO
 ---------------------------------------------------------------------- */
 exports.getForm = (req, res) => {
-  res.status(200).render("Form", { action: "Crear Película" });
+  res.status(200).render("Form", { action: "Crear Película",
+rutaPost:"/filmSave" });
 };
 
-exports.postForm = (req, res) => {
+exports.createFilm = (req, res) => {
   bbdd.createFilm(req.body);
   res.status(200).redirect("/");
 };
@@ -103,7 +104,7 @@ exports.getFilmDetail = (req, res) => {
     });
 };
 /* ----------------------------------------------------------------------
-XXXXX_______PAGINA DE EDITAR
+LEER PARA ACTUALIZAR
 ---------------------------------------------------------------------- */
 exports.editFilm = (req, res) => {
   var titulo = req.params.title;
@@ -111,10 +112,10 @@ exports.editFilm = (req, res) => {
   bbdd
     .getFilmDetail(titulo)
     .then((response) => {
-      console.log(response)
       res.render("Form", {
         action: "Editar",
-        _id:response.id,
+        rutaPost:"/update",
+        id:response._id,
         title: response.title,
         poster: response.poster,
         director: response.director,
@@ -132,7 +133,21 @@ exports.editFilm = (req, res) => {
       console.log(e);
     });
 };
-
+/* ----------------------------------------------------------------------
+ACTUALIZAR
+---------------------------------------------------------------------- */
+exports.updateFilm = (req, res) => {
+  var id=req.body.id;
+  console.log("el archivo rutas")
+  console.log(req.body);
+  bbdd
+  .updateFilm(id, req.body)
+  .then((data)=>{
+    console.log("Documentos cambiados: "+data.result.nModified);
+  res.status(200).redirect("/");
+  })
+  .catch((e)=>console.log(e));
+};
 /* ----------------------------------------------------------------------
 TODAS LAS DEMÁS PÁGINAS
 ---------------------------------------------------------------------- */

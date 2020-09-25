@@ -14,9 +14,9 @@ html
                 a(href="/form" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
         div#sheet
             h2#sheetHeader.fontPix=action
-            form(action="/exito" method="post")
+            form(action=rutaPost method="post")
                 div#smallFilmForm
-                    p(class="fontSecondBold key" id="id")=id
+                    input.form(type="text" name="id" id="id" value=id)
                     div.catFilmForm
                         p(class="fontSecondBold key")="Título"
                         input.form(type="text" name="title" id="titulo" value=title)
@@ -34,14 +34,12 @@ html
                         input.form(type="url" name="poster" id="posterForm" value=poster)
                     div.catFilmForm
                         p(class="fontSecondBold key")="Puntuación"
-                        input.form(type="range" name="score" id="score" min="0" max="10" step="0.1" value=score)
+                        input.form(type="range" name="score" id="range" min="0" max="10" step="0.1" value=score)
                     div#iconsForm
                         img(src="./img/eye.png" alt="watched" id="eye")
                         input(type="checkbox" name="yes" id="watched" value="watched")
                         img(src="./img/loved.png" alt="loved" id="heart")
                         input(type="checkbox" name="yes" id="liked" value=liked)
                 input(type="submit" value="Enviar" id="buttonSave" class="but fontSecond")
-                
-                //- a(href="/" id="buttonSave" class="but fontSecond")="Guardar en Favoritos"
         footer.fontSecond="Made by Marta Pulido 2020"
-script(src="scriptForm.js" defer)
+script(src="script.js")

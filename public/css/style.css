@@ -190,7 +190,7 @@ div#smallFilm {
   padding: 1vw 0 1vw 1vw;
 }
 div#sheetHome {
-  border: 2px solid var(--main-color);
+  border: 2px solid var(--main-color-hover);
   border-radius: 0px 0px 0px 0px;
   display: flex;
   flex-direction: row;
@@ -345,8 +345,9 @@ div#iconsForm {
   align-items: center;
   margin: 2vh 0 2vh 25vw;
 }
-#id {
-  display: none;
+input#id {
+  width: 90vw;
+  /* display: none; */
 }
 /* ----------------------------------------------------------------------
 ---------------------------------FOOTER----------------------------------

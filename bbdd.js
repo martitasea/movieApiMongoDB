@@ -1,4 +1,5 @@
 const bodyParser = require("body-parser");
+const { ObjectId } = require("mongodb");
 
 var MongoClient = require("mongodb").MongoClient;
 var url = "mongodb://localhost:27017/";
@@ -58,7 +59,7 @@ exports.getFilmDetail = async (titulo) => {
     .collection("peliculas")
     .findOne({ title: titulo });
   if (result) {
-    console.log(`He encontrado un elemento '${result.title}' en la colección:`);
+    console.log(`He encontrado un elemento '${result.title}' en la colección`);
     return result;
   } else {
     return null;
@@ -71,11 +72,7 @@ exports.getFilmDetail = async (titulo) => {
 // Esto debe leerse en la Home
 exports.getFilmsDetail = async () => {
   const client = await connect();
-  result = await client
-  .db("moviedb")
-  .collection("peliculas")
-  .find()
-  .toArray();
+  result = await client.db("moviedb").collection("peliculas").find().toArray();
   if (result) {
     return result;
   } else {
@@ -85,15 +82,29 @@ exports.getFilmsDetail = async () => {
 //----------------------------------------------------------------------------
 // U_ACTUALIZAR UNO
 //----------------------------------------------------------------------------
-exports.updateFilm = async () => {
+exports.updateFilm = async (id, film) => {
   const client = await connect();
-  console.log("esta es la req")
-  console.log(req.body.params)
   result = await client
-  .db("moviedb")
-  .collection("peliculas")
-  .updateOne();
-  // .toArray();
+    .db("moviedb")
+    .collection("peliculas")
+    .updateOne(
+      { _id: ObjectId(id) },
+      {
+        $set: {
+          title: film.title,
+          poster: film.poster,
+          director: film.director,
+          genre: film.genre,
+          country: film.country,
+          released: film.released,
+          runtime: film.runtime,
+          score: film.score,
+          actors: film.actors,
+          plot: film.plot,
+          awards: film.awards,
+        },
+      }
+    );
   if (result) {
     return result;
   } else {
@@ -139,9 +150,9 @@ exports.deleteFilm = async (nameFilm) => {
     .deleteOne({ title: nameFilm });
   console.log(`${result.deletedCount} document(s) was/were deleted.`);
   //Esto lo tenía comentado
-    if (result) {
-      return result;
+  if (result) {
+    return result;
   } else {
-       return null
-     }
+    return null;
+  }
 };

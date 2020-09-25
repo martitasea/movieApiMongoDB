@@ -9,7 +9,6 @@ function getFilmDetails() {
 // GUARDAR UNA PELI DE LA API EN BBDD
 // ----------------------------------------------------------------------
 function saveFilmApi() {
-  if(document.getElementById=="Crear Película"){
   let newFilm = {
     title: document.getElementById("sheetHeader").innerText,
     poster: document.getElementById("poster").src,
@@ -35,9 +34,6 @@ function saveFilmApi() {
     })
     .catch((e) => console.log("Ocurrió un error:" + e));
 }
-else{
-  // location.replace("/film/edit")
-}}
 // ----------------------------------------------------------------------
 // BORRAR UNA PELI DE BBDD DESDE LA HOME
 // ----------------------------------------------------------------------
