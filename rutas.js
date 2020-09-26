@@ -42,7 +42,7 @@ exports.getFilmApi = (req, res) => {
         title: myJson.Title,
         poster: myJson.Poster,
         director: myJson.Director,
-        released: myJson.Released,
+        year: myJson.Year,
         runtime: myJson.Runtime,
         actors: myJson.Actors,
         score: myJson.imdbRating,
@@ -86,12 +86,13 @@ exports.getFilmDetail = (req, res) => {
     .then((response) => {
       console.log(response);
       res.render("Film", {
+        id:response._id,
         title: response.title,
         poster: response.poster,
         director: response.director,
         genre: response.genre,
         country: response.country,
-        released: response.released,
+        year: response.year,
         runtime: response.runtime,
         score: response.score,
         actors: response.actors,
@@ -121,7 +122,7 @@ exports.editFilm = (req, res) => {
         director: response.director,
         genre: response.genre,
         country: response.country,
-        released: response.released,
+        year: response.year,
         runtime: response.runtime,
         score: response.score,
         actors: response.actors,

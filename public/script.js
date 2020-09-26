@@ -15,7 +15,7 @@ function saveFilmApi() {
     director: document.getElementById("director").innerText,
     genre: document.getElementById("genre").innerText,
     country: document.getElementById("country").innerText,
-    released: document.getElementById("released").innerText,
+    year: document.getElementById("year").innerText,
     runtime: document.getElementById("runtime").innerText,
     actors: document.getElementById("actors").innerText,
     plot: document.getElementById("about").innerText,
@@ -64,34 +64,3 @@ function seeFilmDetails(title) {
 function readFilmDetails(title) {
   location.replace(`/film/edit/${title}`)
 }
-
-
-// function editFilmDetails(titulo) {
-//   let filmsSaved = JSON.parse(localStorage.getItem("filmsStored"));
-//   for (let i = 0; i < filmsSaved.length; i++) {
-//     if (filmsSaved[i].titulo == titulo) {
-//       console.log("hola");
-//       location.replace(
-//         "films/edit/" +
-//           i +
-//           "?titulo=" +
-//           filmsSaved[i].titulo +
-//           "&director=" +
-//           filmsSaved[i].director +
-//           "&released=" +
-//           filmsSaved[i].released +
-//           "&runtime=" +
-//           filmsSaved[i].runtime +
-//           "&poster=" +
-//           filmsSaved[i].poster +
-//           "&watched=" +
-//           filmsSaved[i].watched +
-//           "&liked=" +
-//           filmsSaved[i].liked +
-//           "&score=" +
-//           filmsSaved[i].score
-//       );
-//     }
-//   }
-// }
-

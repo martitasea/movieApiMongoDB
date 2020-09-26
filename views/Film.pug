@@ -3,11 +3,11 @@ html
         title="Pixel Movie - "+title
         link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
-        link(rel='icon' type='image/png' href="img/camera.png")  
+        link(rel='icon' type='image/png' href="img/camera.svg")  
     body
         header#header
             div#headerTit
-                img#logo(src="./img/camera.png", alt="camera")
+                img#logo(src="./img/camera.svg", alt="camera")
                 h1.fontPix="Pixel Movie"
             nav#header
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
@@ -17,6 +17,7 @@ html
             div#smallFilm
                 div#smallSup
                     img#poster(src=poster, alt="Poster Film")
+                    p#id=id
                     div#detFilmHome
                         div.catFilmHome
                             p.fontSecondBold.key="Director"
@@ -28,8 +29,8 @@ html
                             p.fontSecondBold.key="País"
                             p.fontSecond.value#country=country                            
                         div.catFilmHome
-                            p.fontSecondBold.key="Fecha"
-                            p.fontSecond.value#released=released
+                            p.fontSecondBold.key="Año"
+                            p.fontSecond.value#year=year
                         div.catFilmHome
                             p.fontSecondBold.key="Duración"
                             p.fontSecond.value#runtime=runtime
@@ -42,7 +43,8 @@ html
                     p(class="value fontSecond")=plot
                 div.catFilmHome#awards
                     p(class="key fontSecondBold")="Premios"
-                    p(class="value fontSecond")=awards
+                    p(class="value fontSecond")=awards    
+    if !id    
         nav#navSheet
             input#butSaveF(type="button" onclick=`saveFilmApi()` value="Guardar en Favoritos" class="fontSecond")
         footer.fontSecond="Made by Marta Pulido 2020"

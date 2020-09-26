@@ -3,16 +3,16 @@ html
         title="Pixel Movie - Home"
         link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
-        link(rel='icon' type='image/png' href="img/camera.png")       
+        link(rel='icon' type='image/png' href="img/camera.svg")       
     body
         header#header
             div#headerTit
-                img#logo(src="./img/camera.png", alt="camera")
+                img#logo(src="./img/camera.svg", alt="camera")
                 h1.fontPix="Pixel Movie"
             nav#header
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
                 a(href="/form" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
-        div#search
+        form#search
             input(type="text" placeholder="Busca una película" id="movSearch").big.fontSecond
             div
             button(type="button" id="buttonSearch" onclick="getFilmDetails()" class="fontSecond")="Obtén detalles"
@@ -30,7 +30,7 @@ html
                                 p.fontSecond.value=film.director
                             div.catFilmHome
                                 p.fontSecondBold.key="Fecha"
-                                p.fontSecond.value=film.released
+                                p.fontSecond.value=film.year
                             div.catFilmHome
                                 p.fontSecondBold.key="Duración"
                                 p.fontSecond.value=film.runtime

@@ -96,7 +96,7 @@ exports.updateFilm = async (id, film) => {
           director: film.director,
           genre: film.genre,
           country: film.country,
-          released: film.released,
+          year: film.year,
           runtime: film.runtime,
           score: film.score,
           actors: film.actors,

@@ -3,11 +3,11 @@ html
         title="Pixel Movie - Formulario"
         link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
-        link(rel='icon' type='image/png' href="img/camera.png")  
+        link(rel='icon' type='image/png' href="img/camera.svg")  
     body
         header#header
             div#headerTit
-                img#logo(src="./img/camera.png", alt="camera")
+                img#logo(src="./img/camera.svg", alt="camera")
                 h1.fontPix="Pixel Movie"
             nav#header
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
@@ -19,16 +19,16 @@ html
                     input.form(type="text" name="id" id="id" value=id)
                     div.catFilmForm
                         p(class="fontSecondBold key")="Título"
-                        input.form(type="text" name="title" id="titulo" value=title)
+                        input.form(type="text" name="title" id="titulo" value=title required placeholder="* Obligatorio")
                     div.catFilmForm
                         p(class="fontSecondBold key")="Director"
-                        input.form(type="text" name="director" id="director" value=director)
+                        input.form(type="text" name="director" id="director" value=director required placeholder="* Obligatorio")
                     div.catFilmForm
-                        p(class="fontSecondBold key")="Fecha"
-                        input.form(type="date" name="released" id="released" value=released)
+                        p(class="fontSecondBold key")="Año"
+                        input.form(type="number" min="1912" max="2020" placeholder="1990" name="year" id="year" value=year)
                     div.catFilmForm
                         p(class="fontSecondBold key")="Duración"
-                        input.form(type="text" name="runtime" id="runtime" value=runtime)
+                        input.form(type="text" name="runtime" id="runtime" value=runtime class="runtime")
                     div.catFilmForm
                         p(class="fontSecondBold key")="Carátula"
                         input.form(type="url" name="poster" id="posterForm" value=poster)

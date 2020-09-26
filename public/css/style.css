@@ -93,8 +93,8 @@ nav#header {
   flex-direction: row;
   justify-content: space-between;
 }
-a#butHome,
-a#butSave {
+a#butSave,
+a#butHome {
   font-size: var(--font-size-regular-nav);
   background-color: var(--main-color);
   padding: 0 12vw;
@@ -113,17 +113,19 @@ a#butSave:hover {
 /* ----------------------------------------------------------------------
 ----------------------------------SEARCH---------------------------------
 ---------------------------------------------------------------------- */
-div#search {
+form#search {
   display: flex;
   flex-direction: column;
   margin-bottom: 2vh;
   margin-top: 5vh;
 }
-div#search p {
+form#search p {
   margin: 2vh 0 0 2vw;
 }
-div#search div {
-  border: 1px solid var(--main-color);
+form#search div {
+  background-color: var(--main-color);
+  height: 2px;
+  /* border: 1px solid var(--main-color); */
   width: 70vw;
   margin: 0.5vh 0 1vh 2vw;
 }
@@ -293,6 +295,7 @@ nav#navSheet {
 }
 #butSaveF {
   margin-left: 2vw;
+  border-color: var(--main-color-hover);
 }
 #buttonSave {
   font-size: var(--font-size-regular-nav);
@@ -336,7 +339,7 @@ input.form, input#posterForm {
   font-size: var(--font-size-pixel-score);
   color: var(--main-color-hover)
 }
-input#runtime::after {
+.runtime::after {
   content: "min";
 }
 div#iconsForm {
@@ -345,9 +348,9 @@ div#iconsForm {
   align-items: center;
   margin: 2vh 0 2vh 25vw;
 }
-input#id {
+#id {
   width: 90vw;
-  /* display: none; */
+  display: none;
 }
 /* ----------------------------------------------------------------------
 ---------------------------------FOOTER----------------------------------
