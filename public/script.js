@@ -2,7 +2,7 @@
 // BUSCAR UNA PELÍCULA EN LA API
 // ----------------------------------------------------------------------
 function getFilmDetails() {
-  let title = document.getElementById("movSearch");
+  let title = document.getElementById("filmSearch");
   location.replace("/films/" + title.value);
 }
 // ----------------------------------------------------------------------

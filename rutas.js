@@ -20,8 +20,9 @@ exports.getHome = (req, res) => {
 FORMULARIO
 ---------------------------------------------------------------------- */
 exports.getForm = (req, res) => {
-  res.status(200).render("Form", { action: "Crear Película",
-rutaPost:"/filmSave" });
+  res.status(200).render("Form", {
+    page: "Crear Película",
+    rutaPost:"/filmSave" });
 };
 
 exports.createFilm = (req, res) => {
@@ -114,7 +115,7 @@ exports.editFilm = (req, res) => {
     .getFilmDetail(titulo)
     .then((response) => {
       res.render("Form", {
-        action: "Editar",
+        page: "Editar",
         rutaPost:"/update",
         id:response._id,
         title: response.title,

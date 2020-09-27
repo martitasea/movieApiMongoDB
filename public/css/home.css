@@ -1,0 +1,149 @@
+/* ----------------------------FONTS-----------------------------------*/
+a#butEditS,
+a#butDeleteS,
+a#butDetailsS, div#sheetCollection p#resTit {
+  font-size: 45px;
+  font-family: "apparata-lightuploaded_file";
+  line-height: 4vh;
+  color: white;
+}
+form#search input#filmSearch,
+form#search button#buttonSearch, div.cat p.value{
+  font-size: 45px;
+  font-family: "apparata-lightuploaded_file";
+  color: rgb(36, 36, 36);
+}
+body p#favTit {
+  font-size: 45px;
+  font-family: "apparata-lightuploaded_file";
+  color: rgb(36, 36, 36);
+}
+form#search button#buttonSearch {
+  color: white;
+}
+div#sheetHeader h2,
+div#sheetHeader p {
+  font-size: 65px;
+  font-family: "pixel_arial_11regular";
+  color: white;
+}
+p.key{
+  font-size: 45px;
+  font-family: "apparata-lightuploaded_file";
+  font-weight: bold;
+}
+/* ----------------------------------------------------------------------
+  ----------------------------------SEARCH---------------------------------
+  ---------------------------------------------------------------------- */
+form#search {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
+  margin-top: 5vh;
+}
+form#search p {
+  margin: 2vh 0 0 2vw;
+}
+form#search div {
+  background-color: var(--main-color);
+  height: 2px;
+  /* border: 1px solid var(--main-color); */
+  width: 70vw;
+  margin: 0.5vh 0 1vh 2vw;
+}
+input#filmSearch {
+  border: none;
+  margin: 0 0 0 2vw;
+}
+button#buttonSearch {
+  height: auto;
+  border: none;
+  background-color: var(--main-color-hover);
+  padding: 1vh 0;
+  border-radius: 10px;
+  letter-spacing: 5px;
+  margin: 0 2vw;
+}
+/* ----------------------------------------------------------------------
+  --------------------------------SHEET----------------------------------
+  ---------------------------------------------------------------------- */
+p#favTit {
+  margin: 4vh 2vw 1vh 2vw;
+}
+div#sheetCollection {
+  display: flex;
+  flex-direction: column;
+}
+div#sheet {
+  margin: 1.5vh 1vw 1.5vh 1vw;
+}
+div#sheetHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--main-color-hover);
+  padding: 1vh 3vw 1vh 3vw;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: 3px solid var(--main-color-hover);
+}
+#sheetHeader h2 {
+  letter-spacing: 0.25vw;
+}
+div#sheetContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border: 2px solid var(--main-color-hover);
+  border-radius: 0px 0px 0px 0px;
+  padding: 1vw 1vw 1vw 1vw;
+  z-index: 20;
+}
+#poster {
+  height: 250px;
+  width: auto;
+}
+div#detFilm {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  margin: 1vh 1vw 0 2vw;
+  width: 100%;
+  /* align-items: flex-end; */
+}
+div.cat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 1vh;
+}
+.key {
+  width: 250px;
+}
+.value {
+  width: 450px;
+}
+nav#navSheet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#butEditS,
+#butDeleteS,
+#butDetailsS {
+  padding: 0 8vw;
+  text-decoration: none;
+  position: relative;
+  z-index: 0;
+  background-color: var(--main-color-hover);
+  border-radius: 0 0 10px 10px;
+}
+p#resTit {
+  text-align: center;
+  background-color: var(--main-color);
+  border-radius: 10px;
+  padding: 5px;
+  height: auto;
+  border: none;
+  padding: 1vh 0;
+  margin: 1vh 2vw;
+}

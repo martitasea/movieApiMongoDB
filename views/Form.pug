@@ -1,45 +1,56 @@
-html
+tml
     head
-        title="Pixel Movie - Formulario"
+        title="Pixel Movie - "+title
         link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
+        link(rel='stylesheet' type='text/css' href='css/form.css')
         link(rel='icon' type='image/png' href="img/camera.svg")  
     body
         header#header
-            div#headerTit
+            div#title
                 img#logo(src="./img/camera.svg", alt="camera")
-                h1.fontPix="Pixel Movie"
-            nav#header
-                a(href="/" id="butHome" class="but" class="fontSecond")="Home"
-                a(href="/form" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
+                h1="Pixel Movie"
+            nav#navHeader
+                a#butHome(href="/")="Home"
+                a#butForm(href="/form")="Nueva Película"
         div#sheet
-            h2#sheetHeader.fontPix=action
+            h2#sheetHeader=page
             form(action=rutaPost method="post")
-                div#smallFilmForm
-                    input.form(type="text" name="id" id="id" value=id)
-                    div.catFilmForm
-                        p(class="fontSecondBold key")="Título"
-                        input.form(type="text" name="title" id="titulo" value=title required placeholder="* Obligatorio")
-                    div.catFilmForm
-                        p(class="fontSecondBold key")="Director"
-                        input.form(type="text" name="director" id="director" value=director required placeholder="* Obligatorio")
-                    div.catFilmForm
-                        p(class="fontSecondBold key")="Año"
-                        input.form(type="number" min="1912" max="2020" placeholder="1990" name="year" id="year" value=year)
-                    div.catFilmForm
-                        p(class="fontSecondBold key")="Duración"
-                        input.form(type="text" name="runtime" id="runtime" value=runtime class="runtime")
-                    div.catFilmForm
-                        p(class="fontSecondBold key")="Carátula"
-                        input.form(type="url" name="poster" id="posterForm" value=poster)
-                    div.catFilmForm
-                        p(class="fontSecondBold key")="Puntuación"
-                        input.form(type="range" name="score" id="range" min="0" max="10" step="0.1" value=score)
-                    div#iconsForm
-                        img(src="./img/eye.png" alt="watched" id="eye")
-                        input(type="checkbox" name="yes" id="watched" value="watched")
-                        img(src="./img/loved.png" alt="loved" id="heart")
-                        input(type="checkbox" name="yes" id="liked" value=liked)
-                input(type="submit" value="Enviar" id="buttonSave" class="but fontSecond")
-        footer.fontSecond="Made by Marta Pulido 2020"
+                div#sheetContent
+                    input#id(type="text" name="id" value=id)
+                    div.cat
+                        p.key="Título"
+                        input#titulo.form(type="text" name="title" value=title required placeholder="* Obligatorio")
+                    div.cat
+                        p.key="Director"
+                        input#director.form(type="text" name="director" value=director required placeholder="* Obligatorio")
+                    div.cat
+                        p.key="País"
+                        input#country.form(type="text" name="country" value=country)
+                    div.cat
+                        p.key="Año"
+                        input#year.form(type="number" min="1912" max="2020" name="year" value=year)
+                    div.cat
+                        p.key="Duración"
+                        input#runtime.form(type="text" name="runtime" value=runtime class="runtime")
+                    div.cat
+                        p.key="Carátula"
+                        input#posterForm.form(type="url" name="poster" value=poster)
+                    div.cat
+                        p.key="Género"
+                        input#genre.form(type="text" name="genre" value=genre)
+                    div.cat
+                        p.key="Reparto"
+                        input#posterForm.form(type="textarea" name="actors" value=actors)
+                    div.cat
+                        p.key="Sinopsis"
+                        input.form(type="textarea" name="plot" id="plot" value=plot)
+                    div.cat
+                        p.key="Premios"
+                        input#awards.form(type="textarea" name="awards" value=awards)
+                    div.cat
+                        p.key="Puntuación"
+                        input#range.form(type="range" name="awards" min="0" max="10" step="0.1" value=score)
+                input#butSave(type="submit" value="Enviar")
+        footer="Made by Marta Pulido 2020"
 script(src="script.js")

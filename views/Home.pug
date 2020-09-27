@@ -1,51 +1,44 @@
-html
+tml
     head
-        title="Pixel Movie - Home"
+        title="Pixel Movie - "+title
         link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
-        link(rel='icon' type='image/png' href="img/camera.svg")       
+        link(rel='stylesheet' type='text/css' href='css/home.css')
+        link(rel='icon' type='image/png' href="img/camera.svg")  
     body
         header#header
-            div#headerTit
+            div#title
                 img#logo(src="./img/camera.svg", alt="camera")
-                h1.fontPix="Pixel Movie"
-            nav#header
-                a(href="/" id="butHome" class="but" class="fontSecond")="Home"
-                a(href="/form" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
+                h1="Pixel Movie"
+            nav#navHeader
+                a#butHome(href="/")="Home"
+                a#butForm(href="/form")="Nueva Película"
         form#search
-            input(type="text" placeholder="Busca una película" id="movSearch").big.fontSecond
+            input#filmSearch(type="text" placeholder="Busca una película")
             div
-            button(type="button" id="buttonSearch" onclick="getFilmDetails()" class="fontSecond")="Obtén detalles"
-        p#favTit.big.fontSecond="Tus peliculas favoritas"
-        div#sheetPlusNav
-            div#sheet
-                each film in films
-                    h2#sheetHeader.fontPix=film.title
-                    div#sheetHome
-                        img(id="posterHome" src=film.poster, alt="Poster Film")
-                        div#detFilmHome
-                            p(class="fontSecondBold key" id="id")=id
-                            div.catFilmHome
-                                p.fontSecondBold.key="Director"
-                                p.fontSecond.value=film.director
-                            div.catFilmHome
-                                p.fontSecondBold.key="Fecha"
-                                p.fontSecond.value=film.year
-                            div.catFilmHome
-                                p.fontSecondBold.key="Duración"
-                                p.fontSecond.value=film.runtime
-                            div#iconsHome
-                                img(src="./img/eye.png" alt="watched" id="eye")
-                                input(type="checkbox" name="watched" id="watched")
-                                img(src="./img/loved.png" alt="loved" id="heart")
-                                input(type="checkbox" name="liked" id="liked")
-                        div#scoreHome
-                                p.fontPix#score=film.score
+            button#buttonSearch(type="button" onclick="getFilmDetails()")="Obtén detalles"
+        p#favTit="Tus peliculas favoritas"
+        div#sheetCollection
+            each film in films
+                div#sheet
+                    div#sheetHeader
+                        h2=film.title
+                        p=film.score
+                    div#sheetContent
+                        img#poster(src=film.poster, alt="Poster Film")
+                        div#detFilm
+                            p#id=id
+                            div.cat
+                                p.key="Director"
+                                p.value=film.director
+                            div.cat
+                                p.key="Pais"
+                                p.value=film.country
                     nav#navSheet
-                        a(href="#" onclick=`readFilmDetails("${film.title}")` id="butEditS" class="but fontSecond")="Editar"
-                        a(href="#" onclick=`deleteFilmDetails("${film.title}")` id="butDeleteS" class="but fontSecond")="Borrar"
-                        a(href="#" onclick=`seeFilmDetails("${film.title}")` id="butDetailS" class="but" class="fontSecond")="Detalles"
-                else 
-                    p#resTit.big.fontSecond No tienes películas guardadas.
-        footer.fontSecond="Made by Marta Pulido 2020"
+                        a#butEditS(href="#" onclick=`readFilmDetails("${film.title}")`)="Editar"
+                        a#butDeleteS(href="#" onclick=`deleteFilmDetails("${film.title}")`)="Borrar"
+                        a#butDetailsS(href="#" onclick=`seeFilmDetails("${film.title}")`)="Detalles"
+            else 
+                p#resTit.regular.white No tienes películas guardadas.
+        footer.regular.white="Made by Marta Pulido 2020"
 script(src="script.js" defer)
