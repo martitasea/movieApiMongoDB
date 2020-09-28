@@ -13,11 +13,7 @@ p.key{
   font-weight: bold;
 }
 p.value{
-  font-size: 45px;
-  font-family: "apparata-lightuploaded_file";
-}
-div.catFilm p.value{
-  font-size: 30px;
+  font-size:45px;
   font-family: "apparata-lightuploaded_file";
 }
 input#butSave {

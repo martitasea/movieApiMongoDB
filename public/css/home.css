@@ -72,10 +72,12 @@ p#favTit {
 }
 div#sheetCollection {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
 }
 div#sheet {
   margin: 1.5vh 1vw 1.5vh 1vw;
+  width: 950px;
 }
 div#sheetHeader {
   display: flex;

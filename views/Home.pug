@@ -1,6 +1,7 @@
 tml
     head
         title="Pixel Movie - "+title
+        //- meta(name='viewport' content='width=device, initial-scale=1.0')
         link(rel='stylesheet' type='text/css' href='css/reset.css')
         link(rel='stylesheet' type='text/css' href='css/style.css')
         link(rel='stylesheet' type='text/css' href='css/home.css')
@@ -40,5 +41,5 @@ tml
                         a#butDetailsS(href="#" onclick=`seeFilmDetails("${film.title}")`)="Detalles"
             else 
                 p#resTit.regular.white No tienes películas guardadas.
-        footer.regular.white="Made by Marta Pulido 2020"
+        footer="Made by Marta Pulido 2020"
 script(src="script.js" defer)
